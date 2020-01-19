@@ -16,7 +16,7 @@ body {
 	overflow: scroll;
 }
 
-input[type=text],[type=email], select, textarea {
+input[type=text],[type=email],[type=password], select, textarea {
 	width: 100%;
 	padding: 12px;
 	border: 1px solid #ccc;
@@ -207,6 +207,15 @@ tr:nth-child(even) {
 						value="saving" ><br>
 				</div>
 			</div>
+				<div class="row">
+				<div class="col-25">
+					<label for="AccountType"><b>Password </b></label>
+				</div>
+				<div class="col-75">
+		<input type="password" name="password" min=9  >
+				</div>
+			</div>
+		
 			<div class="row"></div>
 			<div class="row">
 
