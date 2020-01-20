@@ -134,6 +134,20 @@ tr:nth-child(even) {
 		<form action="NewAccount">
 			<div class="row">
 				<div class="col-25">
+					<label for="A/cNo"><b>Your A/c Number :</b></label>
+				</div>
+				<div class="col-75">
+					<input type="text" name="accountnumber"
+						placeholder="Account number">
+				</div>
+				<div class="col-75">
+					<form action="#">
+						<input type="submit" value="Okay">
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
 					<label for="Name"><b>Your Name :</b></label>
 				</div>
 				<div class="col-75">
@@ -180,11 +194,11 @@ tr:nth-child(even) {
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="pannumber"><b>Pan number :</b></label>
+					<label for="pannumber"><b>company name :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="pannumber" min=15 max=15
-						placeholder="Your Pan number" required>
+					<input type="text" name="companyname" min=15 max=15
+						placeholder="your company name" required>
 				</div>
 			</div>
 
