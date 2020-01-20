@@ -10,7 +10,7 @@ public class Connect {
 	{
 		try{  
 			Class.forName("com.mysql.jdbc.Driver");  
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Bank","root","Akshay@1997");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","gaurav");
 			if(con==null)
 			{
 				System.out.println("Not Connedted");

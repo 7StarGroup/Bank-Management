@@ -16,7 +16,7 @@ body {
 	background-color: white;
 	height: 262px;
 	width: 500px;
-	margin-left: 300px;
+	margin-left: 350px;
 	margin-top: 200px;
 	border-radius: 8px;
 }
@@ -63,12 +63,16 @@ h1 {
 .forgot {
     
 }
+td
+{
+	text-align: center;
+}
 </style>
 <body>
 
 	<div class="login">
 		<h1 class="fonts" style="margin-left:40% ">Login</h1>
-		<form action="Login" method=GET>
+		<form action="Login" method="POST">
 			<table class="fonts" align="center" cell>
 
 				<tr>
