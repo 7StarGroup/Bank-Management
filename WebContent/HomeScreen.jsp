@@ -132,7 +132,7 @@ iframe {
 		</button>
 		<div class="dropdown-container">
 			<a href="NewAccount.jsp" target="iframe_a">Apply for new account</a>
-			<a href="#">Apply for loan</a> <a href="#">Apply for new passbook</a>
+			<a href="LoanRequst.jsp" target="iframe_a">Apply for loan</a> <a href="#">Apply for new passbook</a>
 			<a href="#">Apply for new cheque book</a> <a href="#">Close
 				account</a>
 		</div>
