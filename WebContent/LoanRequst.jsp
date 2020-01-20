@@ -130,21 +130,22 @@ tr:nth-child(even) {
 	}
 </script>
 <body>
+<form action="save">
 	<div class="container">
-		<form action="NewAccount">
+		
 			<div class="row">
+			
 				<div class="col-25">
 					<label for="A/cNo"><b>Your A/c Number :</b></label>
 				</div>
 				<div class="col-75">
 					<input type="text" name="accountnumber"
-						placeholder="Account number">
+						placeholder="Account number" required>
 				</div>
 				<div class="col-75">
-					<form action="#">
-						<input type="submit" value="Okay">
-					</form>
+						<a href="saveD"><input type="buton" class="button" value="Okay"></a>
 				</div>
+				
 			</div>
 			<div class="row">
 				<div class="col-25">
@@ -219,7 +220,7 @@ tr:nth-child(even) {
 								<br> <input type="file" name="document" multiple required><br>
 							</div>
 						</td>
-						<td><input type="button" class="button" value="Save" required>
+						<td><form action="saveDoc"><input type="button" class="button" value="Save" required></form>
 						</td>
 					</tr>
 					<tr>
@@ -237,7 +238,7 @@ tr:nth-child(even) {
 						</form>
 					</tr>
 				</table>
-				<input type="submit" validate()" value="Submit" class="button"
+				<input type="submit"  value="Submit" class="button"
 					style="margin-right: 60%; margin-top: 10%"> <input
 					type="submit" value="Cancel" class="button"
 					style="margin-right: -47%; margin-top: 10%">
