@@ -49,7 +49,7 @@ input[type=submit]:hover {
 	padding: 20px;
 	width: 80%;
 	margin-left: 10%;
-	margin-top: -4%;
+	margin-top: 0%;
 	font-family: sans-serif;
 }
 

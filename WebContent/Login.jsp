@@ -21,6 +21,7 @@ body {
 	border-radius: 8px;
 }
 
+
 input[type=button]:hover {
 	background-color:  #2e86c1 ;
 }
