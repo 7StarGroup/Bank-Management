@@ -45,7 +45,8 @@ public class ForgetPassword extends HttpServlet {
 		else
 		{
 			out.println("<script>");
-			out.println("alert('Invalid Username or Email Id');window.location = 'http://localhost:8080/BankMgmt/forgotPassword.html';");
+			out.println("alert('Invalid Username or Email Id')");
+			out.println("window.location.replace('forgotPassword.jsp')");
 			out.println("</script>");
 		}
 	}

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <style>
 body {
@@ -21,11 +21,12 @@ body {
 	border-radius: 8px;
 }
 
-
 input[type=button]:hover {
-	background-color:  #2e86c1 ;
+	background-color:  #006400 ;
 }
-
+input[type=submit]:hover {
+	background-color:  #006400 ;
+}
 .button:active {
 	background-color:  #2e86c1 ;
 	box-shadow: 0 5px #666;
@@ -46,7 +47,7 @@ input[type=text] {
 }
 
 .button {
-	background-color: #1890ff;
+	background-color:  #4CAF50;
 	border: none;
 	color: white;
 	padding: 15px 98px;
@@ -67,7 +68,9 @@ h1 {
 td
 {
 	text-align: center;
+
 }
+
 </style>
 <body>
 
@@ -78,7 +81,7 @@ td
 
 				<tr>
 					<td>Username</td>
-					<td><input type="text" name="email" placeholder="username"
+					<td><input type="text" name="username" placeholder="username"
 						required></td>
 				</tr>
 				<tr></tr>
@@ -94,7 +97,7 @@ td
 				</tr>
 			</table>
 		</form>
-		<a class="fonts" style="margin-left: 65%" href="forgotPassword.html">forgot
+		<a class="fonts" style="margin-left: 65%" href="forgotPassword.jsp">forgot
 			Password?</a>
 	</div>
 </body>

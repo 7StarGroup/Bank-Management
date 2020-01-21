@@ -70,9 +70,9 @@ public class Login extends HttpServlet {
 			
 			if(rs.next())
 			{
-					out.println("<script>");
+					/*out.println("<script>");
 					out.println("alert('Success')");
-					out.println("</script>");
+					out.println("</script>");*/
 					
 					request.getRequestDispatcher("HomeScreen.jsp").forward(request, response); 
 			}
