@@ -108,7 +108,7 @@ border:none;
 
 
 <div class="sidenav">
-<a href="#"><b><i class="fas fa-user"></i> PROFILE</b></a>
+<a href="profile.jsp" target="iframe_a"><b><i class="fas fa-user"></i> PROFILE</b></a>
 <a class="active" href="#home"><b><i class="fa fa-home" style="font-size:22px"></i> HOME</b></a>
 <a href="AccountDetails.jsp" target="iframe_a"><b><i class="fa fa-table"></i> ACCOUNT DETAILS</b></a>
  <a href="Passbook.jsp" target="iframe_a"><b><i class="fa fa-book"></i> E-PASSBOOK</b></a>

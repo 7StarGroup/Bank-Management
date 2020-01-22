@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login</title>
+<title>Insert title here</title>
 </head>
 <style>
 body {
@@ -16,17 +16,15 @@ body {
 	background-color: white;
 	height: 262px;
 	width: 500px;
-	margin-left: 350px;
+	margin-left: 300px;
 	margin-top: 200px;
 	border-radius: 8px;
 }
 
 input[type=button]:hover {
-	background-color:  #006400 ;
+	background-color:  #2e86c1 ;
 }
-input[type=submit]:hover {
-	background-color:  #006400 ;
-}
+
 .button:active {
 	background-color:  #2e86c1 ;
 	box-shadow: 0 5px #666;
@@ -47,7 +45,7 @@ input[type=text] {
 }
 
 .button {
-	background-color:  #4CAF50;
+	background-color: #1890ff;
 	border: none;
 	color: white;
 	padding: 15px 98px;
@@ -65,12 +63,6 @@ h1 {
 .forgot {
     
 }
-td
-{
-	text-align: center;
-
-}
-
 </style>
 <body>
 
