@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Student Portal</title>
+<title>Profile</title>
 
 <link rel="stylesheet"
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
@@ -155,7 +155,7 @@ td {
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="Qualification">Qualification/Class</label>
+										<label for="Address">Address</label>
 										<div class="input-group pb-modalreglog-input-group">
 											<input type="text" class="form-control" id="qualification"
 												name="qualification" placeholder="Qualification" required="required">
