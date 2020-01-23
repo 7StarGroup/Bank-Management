@@ -9,13 +9,12 @@ public class Connect {
 	public static Connection connectDb()
 	{
 		try{  
-<<<<<<< HEAD
+
 			Class.forName("com.mysql.jdbc.Driver");  
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","Akshay@1997");
-=======
-			Class.forName("com.mysql.cj.jdbc.Driver");  
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","gaurav");
->>>>>>> b8d79ebd45b8b95c1def694827bdc68a30c3d705
+
+			
+
 			if(con==null)
 			{
 				System.out.println("Not Connedted");

@@ -13,13 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-<<<<<<< HEAD
-=======
+
 
 import com.bank.db.Connect;
 
 
->>>>>>> b8d79ebd45b8b95c1def694827bdc68a30c3d705
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
@@ -31,18 +29,15 @@ public class Login extends HttpServlet {
        
     }
 
-<<<<<<< HEAD
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter pw=response.getWriter();
-		
-=======
-	Connection con;
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		response.setContentType("html");
 		PrintWriter out=response.getWriter();
 		try {
+			Connection con;
 			con = Connect.connectDb();
+			
 			if(con==null)
 			{
 				System.out.println("Not Connected in Login .Java");
@@ -50,7 +45,6 @@ public class Login extends HttpServlet {
 			else
 			{
 				System.out.println("Connected");
->>>>>>> b8d79ebd45b8b95c1def694827bdc68a30c3d705
 		
 			}
 			
@@ -58,12 +52,6 @@ public class Login extends HttpServlet {
 			String password=request.getParameter("password");
 		
 			
-<<<<<<< HEAD
-			System.out.println("Screen called");
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost/bank","root","Akshay@1997");
-			if(con==null)
-=======
 			
 
 			
@@ -84,7 +72,6 @@ public class Login extends HttpServlet {
 			
 			
 			if(rs.next())
->>>>>>> b8d79ebd45b8b95c1def694827bdc68a30c3d705
 			{
 					/*out.println("<script>");
 					out.println("alert('Success')");
@@ -96,7 +83,7 @@ public class Login extends HttpServlet {
 			{
 				out.println("<script>");
 				out.println("alert('Oops login failed please try again with correct credentials')");
-				out.println("window.location.replace('login.jsp')");
+				out.println("window.location.replace('Login.jsp')");
 				out.println("</script>");
 				
 			}
@@ -107,34 +94,7 @@ public class Login extends HttpServlet {
 			System.out.println("Error"+e);
 		}
 		
-<<<<<<< HEAD
 
-		
-		try
-		{
-		PreparedStatement ps;
-		ps=con.prepareStatement("select * from user where email=? and password=?");
-		ps.setString(1, email);
-		ps.setString(2, password);
-		
-		rs=ps.executeQuery();
-		if(rs.next())
-		{
-			 HttpSession session=request.getSession();  
-		        session.setAttribute("uname",email);  
-			
-				pw.println("<script type='text/javascript'>");
-				pw.println("location='HomeScreen.jsp';");
-				pw.print("</script>");
-				
-				
-		}
-		}
-		catch(Exception e)
-	{
-		System.out.println(e);
-=======
->>>>>>> b8d79ebd45b8b95c1def694827bdc68a30c3d705
 	}
 }
 

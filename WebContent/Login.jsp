@@ -68,11 +68,11 @@ h1 {
 
 	<div class="login">
 		<h1 class="fonts" style="margin-left:40% ">Login</h1>
-<<<<<<< HEAD
+
 		<form action="Login" method=POST>
-=======
+
 		<form action="Login" method="POST">
->>>>>>> b8d79ebd45b8b95c1def694827bdc68a30c3d705
+
 			<table class="fonts" align="center" cell>
 
 				<tr>
