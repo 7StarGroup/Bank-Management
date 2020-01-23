@@ -68,7 +68,7 @@ h1 {
 
 	<div class="login">
 		<h1 class="fonts" style="margin-left:40% ">Login</h1>
-		<form action="Login" method=GET>
+		<form action="Login" method=POST>
 			<table class="fonts" align="center" cell>
 
 				<tr>

@@ -111,7 +111,7 @@ iframe {
 
 	<div class="container">
 
-		<iframe src="Images/bank5.jpg" name="iframe_a" scrolling="no"></iframe>
+		<iframe src="" name="iframe_a" scrolling="no"></iframe>
 	</div>
 
 
