@@ -16,14 +16,20 @@ body {
 	overflow: scroll;
 }
 
-input[type=text], select, textarea {
+input[type=text] select, textarea {
 	width: 100%;
 	padding: 12px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	resize: vertical;
 }
-
+input[type=password],input[type=text]{
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+}
 label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
@@ -49,7 +55,7 @@ input[type=submit]:hover {
 	padding: 20px;
 	width: 80%;
 	margin-left: 10%;
-	margin-top: -4%;
+	margin-top: 0%;
 	font-family: sans-serif;
 }
 

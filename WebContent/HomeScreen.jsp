@@ -96,45 +96,8 @@ border:none;
 </head>
 <body>
 
-<<<<<<< HEAD
-<!-- 	<div class="BankName">
-		<center>
-			<h2>Welcome To Online Bank...!</h2>
-		</center>
-	</div> -->
-
-	<div class="container">
-
-		<iframe src="" name="iframe_a" scrolling="no"></iframe>
-	</div>
 
 
-
-	<div class="sidenav">
-		<a href="#"><b><i class="fas fa-user"></i> PROFILE</b></a> <a
-			href="AccountDetails.jsp" target="iframe_a"><b><i
-				class="fa fa-table"></i> ACCOUNT DETAILS</b></a> <a href="Passbook.jsp"
-			target="iframe_a"><b><i class="fa fa-book"></i> E-PASSBOOK</b></a> <a
-			href="#"><b><i class="fas fa-wallet"></i> BALANCE</b></a> <a
-			href="MoneyTransfer.jsp" target="iframe_a"><b><i
-				class="fa fa-money"></i> TRANSFER MONEY</b></a> <a
-			href="TransactionHistory.jsp" target="iframe_a"><b><i
-				class="fa fa-history"></i> TRANSACTION HISTORY</b></a>
-		<button class="dropdown-btn">
-			<b><i class="fa fa-bank"></i> OTHER SERVICES</b> <i
-				class="fa fa-caret-down"></i>
-		</button>
-		<div class="dropdown-container">
-			<a href="NewAccount.jsp" target="iframe_a">Apply for new account</a>
-			<a href="#">Apply for loan</a> <a href="#">Apply for new passbook</a>
-			<a href="#">Apply for new cheque book</a> <a href="#">Close
-				account</a>
-		</div>
-		<a href="#"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>
-	</div>
-
-	<!-- <div style="margin-left:19%;padding:1px 16px;height:1000px;">
-=======
 <div class="BankName">
  <center><h2>Welcome To Online Bank...!</h2></center>
 </div>
@@ -168,11 +131,6 @@ border:none;
   <a href="login.jsp"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>
 </div>
 
-<!-- <div style="margin-left:19%;padding:1px 16px;height:1000px;">
->>>>>>> b8d79ebd45b8b95c1def694827bdc68a30c3d705
-  <center><h2>Welcome To Online Bank...!</h2></center>
-  
-</div> -->
 
 
 <script>

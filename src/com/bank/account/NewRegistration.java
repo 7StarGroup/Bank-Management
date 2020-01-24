@@ -64,7 +64,7 @@ public class NewRegistration extends HttpServlet {
 		 Part part = request.getPart("Adocument");
 	        String fileName = extractFileName(part);//file name
 	       
-	        String savePath="/home/akki/Desktop/Bank_MGMT/Akshay_Workspace/bank/WebContent/Image" + File.separator + fileName;
+	        String savePath="C:\\Users\\Dipak\\Bank(Git)\\bank\\WebContent\\Images" + File.separator + fileName;
 	           
 	     
 	        File fileSaveDir = new File(savePath);
@@ -74,7 +74,7 @@ public class NewRegistration extends HttpServlet {
 	          Part part1 = request.getPart("Pdocument");
 		        String fileName1 = extractFileName(part1);//file name
 		       
-		        String savePath1="/home/akki/Desktop/Bank_MGMT/Akshay_Workspace/bank/WebContent/Image" + File.separator + fileName1;
+		        String savePath1="" + File.separator + fileName1;
 		           
 		     
 		        File fileSaveDir1 = new File(savePath1);

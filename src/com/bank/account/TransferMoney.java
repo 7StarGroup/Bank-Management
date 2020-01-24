@@ -44,7 +44,7 @@ public class TransferMoney extends HttpServlet {
 			
 			System.out.println("Screen called");
 			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost/bank","root","Akshay@1997");
+			con=DriverManager.getConnection("jdbc:mysql://localhost/bank","root","dipak");
 			if(con==null)
 			{
 				System.out.println("Database Not Connected");
