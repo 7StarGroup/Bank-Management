@@ -71,27 +71,62 @@ td {
 				<div class="profileDiv">
 			<h1 id="title">Profile</h1>
 
+<!-- writing java code for getting current user details from database and displaying on this jsp  -->
+<% 
+Connection con=null;
+ResultSet rs=null;
+String email;
+try
+{	
+	
+	Class.forName("com.mysql.jdbc.Driver");  
+	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","dipak");
+	if(con==null)
+	{
+		System.out.println("Not Connedted");
+	}
+	else
+	{
+		System.out.println("Connected");
+	}
+	
+	String username=(String) session.getAttribute("uname");
+
+	String sql="select user_name,email,address,contact from user where user_name=?";
+	
+	PreparedStatement stmt =con.prepareStatement(sql);
+	stmt.setString(1, username);
+	rs=stmt.executeQuery();
+	
+	rs.next();
+	
+}catch(Exception e)
+{
+System.out.println(e);
+}
+%>
+
 
 			<table id="table">
 				<tr>
 					<td><b>Name :</b></td>
-					<td><b>Jhon Doe</b></td>
+					<td><b><%=rs.getString(1) %> </b></td>
 				</tr>
 				<br>
 				<tr></tr>
 				<tr>
 					<td><b>Email :</b></td>
-					<td><b>Jhon@gmail.com</b></td>
+					<td><b><%=rs.getString(2) %> </b></td>
 				</tr>
 				<tr></tr>
 				<tr>
 					<td><b>Address :</b></td>
-					<td><b>Pune</b></td>
+					<td><b><%=rs.getString(3) %> </b></td>
 				</tr>
 				<tr></tr>
 				<tr>
 					<td><b>Contact :</b></td>
-					<td><b>888887878</b></td>
+					<td><b><%=rs.getString(4) %> </b></td>
 				</tr>
 
 
@@ -106,7 +141,7 @@ td {
 
 	</center>
 	<!-- Pending work for student class nd etc -->
-	<form action="editProfileServlet" method="post" autocomplete="on">
+	<form action="editProfile" method="POST" autocomplete="on">
 		<div class="container pb-modalreglog-container">
 			<div class="row">
 				<div class="col-xs-12 col-md-4 col-md-offset-4">
@@ -157,8 +192,8 @@ td {
 									<div class="form-group">
 										<label for="Address">Address</label>
 										<div class="input-group pb-modalreglog-input-group">
-											<input type="text" class="form-control" id="qualification"
-												name="qualification" placeholder="Qualification" required="required">
+											<input type="text" class="form-control" id="adminaddress"
+												name="adminaddress" placeholder="ADDRESS" required="required">
 											<span class="input-group-addon"><span
 												class="glyphicon glyphicon-lock"></span></span>
 										</div>
