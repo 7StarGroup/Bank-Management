@@ -49,7 +49,7 @@ input[type=submit]:hover {
 	padding: 20px;
 	width: 80%;
 	margin-left: 10%;
-	margin-top: 0%;
+	margin-top: -4%;
 	font-family: sans-serif;
 }
 
@@ -114,7 +114,7 @@ function validate()
 {
 	
 	var aadhar=document.getElementById("aadhar");
-	if(aadhar.toString().length<12)
+	if(aadhar.toString().length!=12)
 		{
 		alert("Invalid aadhar number");
 		}
@@ -123,7 +123,7 @@ function validate()
 </script>
 <body>
 	<div class="container">
-		<form action="#">
+		<form action="NewRegistration" method="post" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-25">
 					<label for="Name"><b>Your Name :</b></label>
@@ -148,6 +148,15 @@ function validate()
 				</div>
 				<div class="col-75">
 					<input type="text" name="email" placeholder="your email id"
+						required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="Paasword"><b>Password :</b></label>
+				</div>
+				<div class="col-75">
+					<input type="password" name="password" placeholder="your Password"
 						required>
 				</div>
 			</div>
@@ -179,31 +188,14 @@ function validate()
 						required>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-25">
-					<label for="aadharnumber"><b>Aadhar number :</b></label>
-				</div>
-				<div class="col-75">
-					<input type="text" name="aadharnumber"
-						placeholder="Your aadhar number" required>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-25">
-					<label for="Nationality"><b>Nationality :</b></label>
-				</div>
-				<div class="col-75">
-					<input type="text" name="nationality"
-						placeholder="your nationality" required>
-				</div>
-
-			</div>
+			
+			
 			<div class="row">
 				<div class="col-25">
 					<label for="AccountType"><b>Account Type:</b></label>
 				</div>
 				<div class="col-75">
-					<br>Saving :<input type="radio" name="Type" value="saving"
+					<br>saving :<input type="radio" name="Type" value="saving"
 						required> Current:<input type="radio" name="Type"
 						value="saving" required><br>
 				</div>
@@ -215,33 +207,32 @@ function validate()
 					<tr>
 						<th>Documents</th>
 						<th>Upload File</th>
-						<th>Save</th>
+						
 					</tr>
 					<tr>
 						<td>Aadhar</td>
 						<td>
 							<div class="col-75">
-								<br> <input type="file" name="document" multiple required><br>
+								<br> <input type="file" name="Adocument" multiple required><br>
 							</div>
 						</td>
-						<td><input type="button" class="button" value="Save" required>
-						</td>
+						
 					</tr>
 					<tr>
 						<td>Pan</td>
 						<td>
 							<div class="col-75">
-							<form action="savedocument">
-								<br> <input type="file" name="document" multiple required><br>
-								</form>
+							
+								<br> <input type="file" name="Pdocument" multiple required><br>
+								
 							</div>
 						</td>
-						<form action="savedocument">
-						<td><input type="button" class="button" value="Save" required></td>
-						</form>
+						
+						
+						
 					</tr>
 				</table>
-				<input type="submit" onclick="validate()" value="Submit" class="button" style="margin-right: 60%; margin-top : 10%">
+				<input type="submit" value="Submit" class="button" style="margin-right: 60%; margin-top : 10%">
 					<input type="submit" value="Cancel" class="button" style="margin-right: -47%; margin-top :10%">
 			</div>
 		</form>
