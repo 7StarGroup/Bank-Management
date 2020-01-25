@@ -61,7 +61,7 @@ public class TransferMoney extends HttpServlet {
 		
 			
 		 HttpSession session=request.getSession(false);  
-	        String UEmail=(String)session.getAttribute("uname");
+	        int UEmail=(int)session.getAttribute("user_id");
 	        
 	        
 	        boolean bIfsc=ChkIfsc(account_number,ifsc);
@@ -160,13 +160,13 @@ public class TransferMoney extends HttpServlet {
 	
 
 
-	private String ChkBal(String uEmail, int amount) {
+	private String ChkBal(int UEmail, int amount) {
 	
 		try
 		{
 		PreparedStatement ps;
-		ps=con.prepareStatement("select * from user,account,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and email=?");
-		ps.setString(1,uEmail);
+		ps=con.prepareStatement("select * from user,account,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and user_id=?");
+		ps.setInt(1,UEmail);
 		
 		
 		rs=ps.executeQuery();

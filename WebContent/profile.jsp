@@ -90,12 +90,12 @@ try
 		System.out.println("Connected");
 	}
 	
-	String username=(String) session.getAttribute("uname");
+	int user_id=(int) session.getAttribute("user_id");
 
-	String sql="select user_name,email,address,contact from user where user_name=?";
+	String sql="select user_name,email,address,contact from user where user_id=?";
 	
 	PreparedStatement stmt =con.prepareStatement(sql);
-	stmt.setString(1, username);
+	stmt.setInt(1, user_id);
 	rs=stmt.executeQuery();
 	
 	rs.next();
@@ -229,7 +229,7 @@ System.out.println(e);
 
 
 
-
+<!-- 
 
 	<script type="text/javascript">
 		var table = document.getElementById('table'), rIndex;
@@ -243,6 +243,6 @@ System.out.println(e);
 			}
 		}
 	</script>
-
+-->
 </body>
 </html>

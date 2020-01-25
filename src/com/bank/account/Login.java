@@ -55,7 +55,7 @@ public class Login extends HttpServlet {
 			
 
 			
-		PreparedStatement stmt = con.prepareStatement("select user_name,password from user where user_name=? and password=?");	
+		PreparedStatement stmt = con.prepareStatement("select user_name,password,user_id from user where user_name=? and password=?");	
 			
 	
 			stmt.setString(1,name);
@@ -78,8 +78,9 @@ public class Login extends HttpServlet {
 					out.println("</script>");*/
 				
 				// setting session to this user
+				 int uid=rs.getInt("user_id");
 					HttpSession session=request.getSession();
-					session.setAttribute("uname", name);
+					session.setAttribute("user_id", uid);
 					
 					request.getRequestDispatcher("HomeScreen.jsp").forward(request, response); 
 			}

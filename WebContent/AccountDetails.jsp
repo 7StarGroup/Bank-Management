@@ -45,16 +45,22 @@ try
 	
 	 
 	
-	String username=(String) session.getAttribute("uname");
+	int user_id=(int) session.getAttribute("user_id");
 
+	String u_email="";
+	String sql1="select email from user where user_id=?";
+	PreparedStatement stmt=con.prepareStatement(sql1);
+	stmt.setInt(1, user_id);
+	rs=stmt.executeQuery();
+	if(rs.next())
+	{
+		u_email=rs.getString(1);
+	}
 	
+	String sql="select user_name,account_id,ifsc_code,account_type,branch_name,contact,email from user,account,branch,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and account.branch_id_fk=branch.branch_id and email=?";
 	
-	
-	
-	String sql="select user_name,account_id,ifsc_code,account_type,branch_name,contact from user,account,branch,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and account.branch_id_fk=branch.branch_id and email=?";
-	
-	PreparedStatement stmt =con.prepareStatement(sql);
-	stmt.setString(1, username);
+	stmt =con.prepareStatement(sql);
+	stmt.setString(1, u_email);
 	rs=stmt.executeQuery();
 	
 	rs.next();
@@ -106,7 +112,7 @@ System.out.println(e);
     
     <tr>
     <td><b>Email :</b></td>
-   <td><% out.print( session.getAttribute("uname").toString()); %></td>
+   <td><%=rs.getString(7) %></td>
     </tr>
     
     
