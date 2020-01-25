@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class login
@@ -51,15 +52,22 @@ public class Login extends HttpServlet {
 		
 		try
 		{
-		PreparedStatement ps;
+		PreparedStatement ps,ps1;
 		ps=con.prepareStatement("select * from user where email=? and password=?");
 		ps.setString(1, email);
 		ps.setString(2, password);
-		
 		rs=ps.executeQuery();
+	
 		if(rs.next())
 		{
-			
+			ps1=con.prepareStatement("select * from user,user_account where user.user_id=user_account.user_id_fk and user_id=?");;
+			ps1.setLong(1, rs.getLong(1));
+			ResultSet rs1 = ps1.executeQuery();
+				HttpSession session=request.getSession();
+				if(rs1.next())
+				session.setAttribute("userId", rs1.getInt(14));
+				session.setAttribute("Address", rs1.getInt(5));
+				session.setAttribute("Mobile", rs1.getInt(6));
 				pw.println("<script type='text/javascript'>");
 				pw.println("location='HomeScreen.jsp';");
 				pw.print("</script>");

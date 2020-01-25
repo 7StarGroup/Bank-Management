@@ -117,6 +117,7 @@ tr:nth-child(even) {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
+	margin-left: 50%;
 }
 </style>
 <script>
@@ -130,22 +131,22 @@ tr:nth-child(even) {
 	}
 </script>
 <body>
-<form action="save">
-	<div class="container">
-		
+	<form action="save">
+		<div class="container">
+
 			<div class="row">
-			
+
 				<div class="col-25">
 					<label for="A/cNo"><b>Your A/c Number :</b></label>
 				</div>
 				<div class="col-75">
 					<input type="text" name="accountnumber"
-						placeholder="Account number" required>
+						placeholder=<%=session.getAttribute("userId")%> >
 				</div>
-				<div class="col-75">
-						<a href="saveD"><input type="buton" class="button" value="Okay"></a>
-				</div>
-				
+			<!-- 	<div class="col-75">
+					<a href="ViewUser"><input type="button" class="button" value="Okay"></a>
+				</div> -->
+
 			</div>
 			<div class="row">
 				<div class="col-25">
@@ -153,7 +154,8 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="name" pattern="[A-Za-z]"
-						placeholder="your full name">
+						placeholder=<%=session.getAttribute("Name")%>
+						disabled>
 				</div>
 			</div>
 			<div class="row">
@@ -161,17 +163,8 @@ tr:nth-child(even) {
 					<label for="Mobile No"><b>Mobile No :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="moblie" placeholder="your moblie number"
-						required>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-25">
-					<label for="Email"><b>Email :</b></label>
-				</div>
-				<div class="col-75">
-					<input type="email" name="email" placeholder="your email id"
-						required>
+					<input type="text" name="moblie" placeholder=<%=session.getAttribute("Mobile")  %>
+						disabled>
 				</div>
 			</div>
 			<div class="row"></div>
@@ -180,8 +173,7 @@ tr:nth-child(even) {
 					<label for="Address"><b>Address :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="address" placeholder="your address"
-						required>
+					<input type="text" name="address" placeholder=<%=session.getAttribute("Address") %>						required>
 				</div>
 			</div>
 			<div class="row">
@@ -220,8 +212,9 @@ tr:nth-child(even) {
 								<br> <input type="file" name="document" multiple required><br>
 							</div>
 						</td>
-						<td><form action="saveDoc"><input type="button" class="button" value="Save" required></form>
-						</td>
+						<td><form action="viewUser">
+								<input type="button" class="button" value="Save" required>
+							</form></td>
 					</tr>
 					<tr>
 						<td>Pan</td>
@@ -238,12 +231,12 @@ tr:nth-child(even) {
 						</form>
 					</tr>
 				</table>
-				<input type="submit"  value="Submit" class="button"
+				<input type="submit" value="Submit" class="button"
 					style="margin-right: 60%; margin-top: 10%"> <input
 					type="submit" value="Cancel" class="button"
 					style="margin-right: -47%; margin-top: 10%">
 			</div>
-		</form>
+	</form>
 	</div>
 </body>
 </html>
