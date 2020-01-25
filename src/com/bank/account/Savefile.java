@@ -7,17 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class NeewAccount
- */
-@WebServlet("/NeewAccount")
-public class NeewAccount extends HttpServlet {
+@WebServlet("/Savefile")
+public class Savefile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
+
+			
 	}
 
 }

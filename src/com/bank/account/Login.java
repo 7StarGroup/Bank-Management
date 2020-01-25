@@ -77,6 +77,8 @@ public class Login extends HttpServlet {
 					out.println("alert('Success')");
 					out.println("</script>");*/
 					
+				HttpSession session=request.getSession();
+				session.setAttribute("uname", name);
 					request.getRequestDispatcher("HomeScreen.jsp").forward(request, response); 
 			}
 			else

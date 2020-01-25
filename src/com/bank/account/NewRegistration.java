@@ -49,7 +49,7 @@ public class NewRegistration extends HttpServlet {
 		if(aadhar.length()!=12)
 		{
 			out.println("<script>");
-			out.println("alert('Invalid Aadhar No');window.location = 'http://localhost:8080/BankMgmt/NewAccount.jsp';");
+			out.println("alert('Invalid Aadhar No');window.location = 'http://localhost:8080/Bank/NewAccount.jsp';");
 			out.println("</script>");
 		}
 		String pan=request.getParameter("pannumber");
@@ -57,14 +57,14 @@ public class NewRegistration extends HttpServlet {
 		if(pan.length()!=10)
 		{
 			out.println("<script>");
-			out.println("alert('Invalid Pan No');window.location = 'http://localhost:8080/BankMgmt/NewAccount.jsp';");
+			out.println("alert('Invalid Pan No');window.location = 'http://localhost:8080/Bank/NewAccount.jsp';");
 			out.println("</script>");
 		}
 		String Type=request.getParameter("Type");
 		 Part part = request.getPart("Adocument");
 	        String fileName = extractFileName(part);//file name
 	       
-	        String savePath="C:\\Users\\Dipak\\Bank(Git)\\bank\\WebContent\\Images" + File.separator + fileName;
+	        String savePath="F:\\Project Exam\\To send\\bank\\WebContent\\Images" + File.separator + fileName;
 	           
 	     
 	        File fileSaveDir = new File(savePath);
