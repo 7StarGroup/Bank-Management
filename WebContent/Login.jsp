@@ -68,12 +68,16 @@ h1 {
 
 	<div class="login">
 		<h1 class="fonts" style="margin-left:40% ">Login</h1>
-		<form action="Login" method=GET>
+
+		<form action="Login" method=POST>
+
+		<form action="Login" method="POST">
+
 			<table class="fonts" align="center" cell>
 
 				<tr>
 					<td>Username</td>
-					<td><input type="text" name="email" placeholder="username"
+					<td><input type="text" name="username" placeholder="username"
 						required></td>
 				</tr>
 				<tr></tr>
@@ -89,7 +93,7 @@ h1 {
 				</tr>
 			</table>
 		</form>
-		<a class="fonts" style="margin-left: 65%" href="forgotPassword.html">forgot
+		<a class="fonts" style="margin-left: 65%" href="forgotPassword.jsp">forgot
 			Password?</a>
 	</div>
 </body>

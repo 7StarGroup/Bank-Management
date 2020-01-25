@@ -16,30 +16,26 @@ body {
 	overflow: scroll;
 }
 
-input[type=text],[type=email],[type=password], select, textarea {
+input[type=text] select, textarea {
 	width: 100%;
 	padding: 12px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	resize: vertical;
 }
-
+input[type=password],input[type=text]{
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+}
 label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
 }
 
 input[type=submit] {
-	background-color: #4CAF50;
-	color: white;
-	padding: 12px 20px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	float: right;
-}
-
-input[type=button] {
 	background-color: #4CAF50;
 	color: white;
 	padding: 12px 20px;
@@ -59,7 +55,7 @@ input[type=submit]:hover {
 	padding: 20px;
 	width: 80%;
 	margin-left: 10%;
-	margin-top: -4%;
+	margin-top: 0%;
 	font-family: sans-serif;
 }
 
@@ -120,25 +116,27 @@ tr:nth-child(even) {
 }
 </style>
 <script>
-	function validate() {
-
-		var aadhar = document.getElementById("aadhar");
-		if (aadhar.toString().length < 12) {
-			alert("Invalid aadhar number");
+function validate()
+{
+	
+	var aadhar=document.getElementById("aadhar");
+	if(aadhar.toString().length!=12)
+		{
+		alert("Invalid aadhar number");
 		}
-
+	
 	}
 </script>
 <body>
 	<div class="container">
-		<form action="NewAccount">
+		<form action="NewRegistration" method="post" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-25">
 					<label for="Name"><b>Your Name :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="name" pattern="[A-Za-z]"
-						placeholder="your full name" >
+					<input type="text" name="name" placeholder="your full name"
+						required>
 				</div>
 			</div>
 			<div class="row">
@@ -155,7 +153,16 @@ tr:nth-child(even) {
 					<label for="Email"><b>Email :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="email" name="email" placeholder="your email id"
+					<input type="text" name="email" placeholder="your email id"
+						required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="Paasword"><b>Password :</b></label>
+				</div>
+				<div class="col-75">
+					<input type="password" name="password" placeholder="your Password"
 						required>
 				</div>
 			</div>
@@ -174,7 +181,7 @@ tr:nth-child(even) {
 					<label for="aadharnumber"><b>Aadhar number :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="aadhar" name="aadharnumber" min=12 max=12
+					<input type="text" id="aadhar" name="aadharnumber"
 						placeholder="Your aadhar number" required>
 				</div>
 			</div>
@@ -183,39 +190,22 @@ tr:nth-child(even) {
 					<label for="pannumber"><b>Pan number :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="pannumber" min=15 max=15 placeholder="Your Pan number"
+					<input type="text" name="pannumber" placeholder="Your Pan number"
 						required>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-25">
-					<label for="Nationality"><b>Nationality :</b></label>
-				</div>
-				<div class="col-75">
-					<input type="text" name="nationality"
-						placeholder="your nationality"  pattern="[A-Za-z]">
-				</div>
-
-			</div>
+			
+			
 			<div class="row">
 				<div class="col-25">
 					<label for="AccountType"><b>Account Type:</b></label>
 				</div>
 				<div class="col-75">
 					<br>saving :<input type="radio" name="Type" value="saving"
-						> Current:<input type="radio" name="Type"
-						value="saving" ><br>
+						required> Current:<input type="radio" name="Type"
+						value="saving" required><br>
 				</div>
 			</div>
-				<div class="row">
-				<div class="col-25">
-					<label for="AccountType"><b>Password </b></label>
-				</div>
-				<div class="col-75">
-		<input type="password" name="password" min=9  >
-				</div>
-			</div>
-		
 			<div class="row"></div>
 			<div class="row">
 
@@ -223,37 +213,33 @@ tr:nth-child(even) {
 					<tr>
 						<th>Documents</th>
 						<th>Upload File</th>
-						<th>Save</th>
+						
 					</tr>
 					<tr>
 						<td>Aadhar</td>
 						<td>
 							<div class="col-75">
-								<br> <input type="file" name="document" multiple required><br>
+								<br> <input type="file" name="Adocument" multiple required><br>
 							</div>
 						</td>
-						<td><input type="button" class="button" value="Save" required>
-						</td>
+						
 					</tr>
 					<tr>
 						<td>Pan</td>
 						<td>
 							<div class="col-75">
-								<form action="savedocument">
-									<br> <input type="file" name="document" multiple required><br>
-								</form>
+							
+								<br> <input type="file" name="Pdocument" multiple required><br>
+								
 							</div>
 						</td>
-						<form action="savedocument">
-							<td><input type="submit" class="button" value="Save"
-								required></td>
-						</form>
+						
+						
+						
 					</tr>
 				</table>
-				<input type="submit"validate()" value="Submit"
-					class="button" style="margin-right: 60%; margin-top: 10%">
-				<input type="submit" value="Cancel" class="button"
-					style="margin-right: -47%; margin-top: 10%">
+				<input type="submit" value="Submit" class="button" style="margin-right: 60%; margin-top : 10%">
+					<input type="submit" value="Cancel" class="button" style="margin-right: -47%; margin-top :10%">
 			</div>
 		</form>
 	</div>

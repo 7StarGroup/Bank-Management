@@ -27,6 +27,44 @@ td, th {
 </style>
 <body>
 <center><h2>Account Information</h2></center>
+
+    
+  <%@page import ="com.bank.db.Connect" %>
+<%@page import="java.sql.*"%>  
+
+
+<% 
+Connection con=null;
+ResultSet rs=null;
+String email;
+try
+{
+
+	
+	con = Connect.connectDb();
+	
+	 
+	
+	String username=(String) session.getAttribute("uname");
+
+	
+	
+	
+	
+	String sql="select user_name,account_id,ifsc_code,account_type,branch_name,contact from user,account,branch,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and account.branch_id_fk=branch.branch_id and email=?";
+	
+	PreparedStatement stmt =con.prepareStatement(sql);
+	stmt.setString(1, username);
+	rs=stmt.executeQuery();
+	
+	rs.next();
+	
+}catch(Exception e)
+{
+System.out.println(e);
+}
+%>
+
 <table>
 <col width="200px">
 <col width="200px">
@@ -34,42 +72,50 @@ td, th {
   
   <tr>
     <td><b>Account Holder :</b></td>
-    <td>?</td>
+    <td><%=rs.getString(1) %></td>
+    </tr>
+    
    
   </tr>
   <tr>
     <td><b>Account Number :</b></td>
-    <td>?</td>
+    <td><%=rs.getInt(2) %></td>
+   
    
   </tr>
   <tr>
     <td><b>IFSC Code :</b></td>
-    <td>?</td>
-  
-  </tr>
+   <td><%=rs.getString(3) %></td>
+    </tr>
+    
+    </tr>
   <tr>
     <td><b>Account Type :</b></td>
-    <td>?</td>
-  
-  </tr>
-  <tr>
-    <td><b>Branch :</b></td>
-    <td>?</td>
-   
-  </tr>
-  <tr>
-    <td><b>Mobile Number :</b></td>
-    <td>?</td>
-  
-  </tr>
-  <tr>
-    <td><b>Email :</b></td>
-    <td>?</td>
+   <td><%=rs.getString(4) %></td>
+    </tr>
     
-  </tr>
-  
-  
-</table>
+    <tr>
+    <td><b>Branch :</b></td>
+   <td><%=rs.getString(5) %></td>
+    </tr>
+    
+    <tr>
+    <td><b>Contact No :</b></td>
+   <td><%=rs.getString(6) %></td>
+    </tr>
+    
+    <tr>
+    <td><b>Email :</b></td>
+   <td><% out.print( session.getAttribute("uname").toString()); %></td>
+    </tr>
+    
+    
+    
+    </table>
+
+
+
+
 
 </body>
 </html>

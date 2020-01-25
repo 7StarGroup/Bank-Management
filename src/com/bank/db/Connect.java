@@ -9,8 +9,12 @@ public class Connect {
 	public static Connection connectDb()
 	{
 		try{  
+
 			Class.forName("com.mysql.jdbc.Driver");  
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","root");
+
+			
+
 			if(con==null)
 			{
 				System.out.println("Not Connedted");

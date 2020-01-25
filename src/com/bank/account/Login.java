@@ -1,11 +1,12 @@
 package com.bank.account;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,69 +14,88 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class login
- */
+
+import com.bank.db.Connect;
+
+
+
 @WebServlet("/Login")
 public class Login extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+   
+    public Login() {
+        super();
+       
+    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter pw=response.getWriter();
-		
-		
-		//db connectivity
-		Connection con = null;
-		ResultSet rs;
-		
-		try
-		{
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		response.setContentType("html");
+		PrintWriter out=response.getWriter();
+		try {
+			Connection con;
+			con = Connect.connectDb();
 			
-			System.out.println("Screen called");
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost/bank","root","root");
 			if(con==null)
 			{
-				System.out.println("Database Not Connected");
+				System.out.println("Not Connected in Login .Java");
 			}
 			else
 			{
-				System.out.println("DB Connected");
+				System.out.println("Connected");
+		
 			}
+			
+			String name=request.getParameter("username");
+			String password=request.getParameter("password");
+		
+			
+			
+
+			
+		PreparedStatement stmt = con.prepareStatement("select user_name,password from user where user_name=? and password=?");	
+			
+	
+			stmt.setString(1,name);
+			stmt.setString(2,password);
+			
+			
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			
+			
+			
+	
+			
+			
+			if(rs.next())
+			{
+					/*out.println("<script>");
+					out.println("alert('Success')");
+					out.println("</script>");*/
+					
+					request.getRequestDispatcher("HomeScreen.jsp").forward(request, response); 
+			}
+			else
+			{
+				out.println("<script>");
+				out.println("alert('Oops login failed please try again with correct credentials')");
+				out.println("window.location.replace('Login.jsp')");
+				out.println("</script>");
+				
+			}
+			
+					
 		}catch(Exception e)
 		{
-			System.out.println(e);
+			System.out.println("Error"+e);
 		}
-		String email=request.getParameter("email");
-		String password=request.getParameter("password");
 		
 
-		
-		try
-		{
-		PreparedStatement ps,ps1;
-		ps=con.prepareStatement("select * from user where email=? and password=?");
-		ps.setString(1, email);
-		ps.setString(2, password);
-		rs=ps.executeQuery();
-	
-		if(rs.next())
-		{
-			ps1=con.prepareStatement("select * from user,user_account where user.user_id=user_account.user_id_fk and user_id=?");;
-			ps1.setLong(1, rs.getLong(1));
-			ResultSet rs1 = ps1.executeQuery();
-				HttpSession session=request.getSession();
-				if(rs1.next())
-				session.setAttribute("userId", rs1.getInt(14));
-				session.setAttribute("Address", rs1.getInt(5));
-				session.setAttribute("Mobile", rs1.getInt(6));
-				pw.println("<script type='text/javascript'>");
-				pw.println("location='HomeScreen.jsp';");
-				pw.print("</script>");
-		}
-		}
-		catch(Exception e)
-	{
-		System.out.println(e);
 	}
 }
-}
+
+
