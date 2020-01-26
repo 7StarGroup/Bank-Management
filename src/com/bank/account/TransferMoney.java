@@ -14,23 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.bank.db.Connect;
+
 
 @WebServlet("/TransferMoney")
 public class TransferMoney extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Connection con=null;
 	ResultSet rs=null;
-	
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public TransferMoney() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		response.setContentType("html");
@@ -44,7 +35,7 @@ public class TransferMoney extends HttpServlet {
 			
 			System.out.println("Screen called");
 			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost/bank","root","dipak");
+			Connection con=Connect.connectDb();
 			if(con==null)
 			{
 				System.out.println("Database Not Connected");
