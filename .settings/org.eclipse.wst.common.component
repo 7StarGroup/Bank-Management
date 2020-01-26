@@ -2,10 +2,13 @@
     <wb-module deploy-name="Bank">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <dependent-module archiveName="mysql-connector-java-5.1.23-bin.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/Jar Files/mysql-connector-java-5.1.23-bin.jar">
+        <dependent-module archiveName="mysql-connector-java-8.0.11.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Dipak/Documents/Downloads/mysql-connector-java-8.0.11.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="servlet-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/Jar Files/servlet-api.jar">
+        <dependent-module archiveName="servlet-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Dipak/Documents/Downloads/servlet-api.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsp-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Dipak/Documents/Downloads/jsp-api.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="Bank"/>

@@ -128,7 +128,7 @@ border:none;
      <a href="#">Apply for new cheque book</a>
     <a href="#">Close account</a>
   </div>
-  <a href="login.jsp"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>
+  <a href="Login.jsp"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>
 </div>
 
 

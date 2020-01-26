@@ -76,9 +76,8 @@ public class editProfile extends HttpServlet {
 			int test=stmt.executeUpdate();
 			if(test!=0)
 			{
-				System.out.println("Excecuted");
 				out.println("<script>");
-				out.println("alert('Yup..!! Updated information succsessfully ');window.location.replace('HomeScreen.jsp');");
+				out.println("alert('Yup..!! Updated information succsessfully ');window.location='HomeScreen.jsp';");
 				out.println("</script>");
 			}
 			else

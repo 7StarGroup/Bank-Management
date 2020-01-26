@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `bank` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `bank`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: bank
+-- Host: localhost    Database: bank
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.37-MariaDB
+-- Server version	5.7.29-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +30,7 @@ CREATE TABLE `account` (
   PRIMARY KEY (`account_id`),
   KEY `branch_id_fk_idx` (`branch_id_fk`),
   CONSTRAINT `branch_id_fk` FOREIGN KEY (`branch_id_fk`) REFERENCES `branch` (`branch_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +39,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES (100,'saving',1000,1000),(101,'saving',1500,1001),(102,'saving',1000,1002);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,6 +66,7 @@ CREATE TABLE `branch` (
 
 LOCK TABLES `branch` WRITE;
 /*!40000 ALTER TABLE `branch` DISABLE KEYS */;
+INSERT INTO `branch` VALUES (1000,'sangvi','pune','888888888','ADSW243De'),(1001,'pimple','aundh','1234567890','ASDFG44DE'),(1002,'demo','demo','0909090909','DEMODEMO');
 /*!40000 ALTER TABLE `branch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,9 +131,11 @@ CREATE TABLE `transactions` (
   `transaction_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `tran_type` varchar(45) DEFAULT NULL,
   `user_id_fk` bigint(20) DEFAULT NULL,
+  `transac_date` datetime DEFAULT NULL,
+  `amount` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`transaction_id`),
   KEY `user_id_fk_idx` (`user_id_fk`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=502 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,6 +144,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+INSERT INTO `transactions` VALUES (501,'deposit',1,NULL,NULL);
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,11 +164,13 @@ CREATE TABLE `user` (
   `contact` varchar(45) DEFAULT NULL,
   `role` varchar(45) DEFAULT NULL,
   `aadhar_url` text,
-  `aadhar_no` int(12) DEFAULT NULL,
+  `aadhar_no` int(15) DEFAULT NULL,
   `pan_url` text,
   `pan_no` varchar(10) DEFAULT NULL,
+  `chequebook` bit(1) DEFAULT NULL,
+  `passbook` bit(1) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +179,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'dmakarand@agsft.com','dmakarand@agsft.com','Test@123',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `user` VALUES (1,'Mak','makk@gmail.com','mak123','Pune','1234567',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'demo','demo@gmail.com','demo','demo','22224','user',NULL,12341234,NULL,'1234567890',NULL,NULL),(3,'demo','demo@gmail.com','demo','demo','22224','user',NULL,9090909,NULL,'0909090909',NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +202,7 @@ CREATE TABLE `user_account` (
   KEY `account_id_fk_idx` (`account_id_fk`),
   CONSTRAINT `account_id_fk` FOREIGN KEY (`account_id_fk`) REFERENCES `account` (`account_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id_fk`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2003 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,6 +211,7 @@ CREATE TABLE `user_account` (
 
 LOCK TABLES `user_account` WRITE;
 /*!40000 ALTER TABLE `user_account` DISABLE KEYS */;
+INSERT INTO `user_account` VALUES (2000,1,100,'',5000,'\0'),(2001,2,101,'',50000,'\0'),(2002,3,102,'',4000,'\0');
 /*!40000 ALTER TABLE `user_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,6 +228,7 @@ CREATE TABLE `user_loan` (
   `user_id_fk` bigint(20) DEFAULT NULL,
   `salary_slip_url` text,
   `company_name` text,
+  `is_Sanctioned` bit(1) DEFAULT NULL,
   PRIMARY KEY (`user_loan_id`),
   KEY `loan_id_fk` (`loan_id_fk`),
   KEY `user_id_fk` (`user_id_fk`),
@@ -248,4 +255,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-21  0:31:51
+-- Dump completed on 2020-01-26 10:04:35

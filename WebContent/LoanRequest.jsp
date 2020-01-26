@@ -120,16 +120,6 @@ tr:nth-child(even) {
 	margin-left: 50%;
 }
 </style>
-<script>
-	function validate() {
-
-		var aadhar = document.getElementById("aadhar");
-		if (aadhar.toString().length < 12) {
-			alert("Invalid aadhar number");
-		}
-
-	}
-</script>
 <body>
 	<form action="save">
 		<div class="container">
@@ -141,7 +131,7 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="accountnumber"
-						placeholder=<%=session.getAttribute("userId")%> >
+						placeholder="userId" >
 				</div>
 			<!-- 	<div class="col-75">
 					<a href="ViewUser"><input type="button" class="button" value="Okay"></a>
@@ -154,7 +144,7 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="name" pattern="[A-Za-z]"
-						placeholder=<%=session.getAttribute("Name")%>
+						placeholder="Your name"
 						disabled>
 				</div>
 			</div>
@@ -163,7 +153,7 @@ tr:nth-child(even) {
 					<label for="Mobile No"><b>Mobile No :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="moblie" placeholder=<%=session.getAttribute("Mobile")  %>
+					<input type="text" name="moblie" placeholder=""
 						disabled>
 				</div>
 			</div>
@@ -173,7 +163,7 @@ tr:nth-child(even) {
 					<label for="Address"><b>Address :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="address" placeholder=<%=session.getAttribute("Address") %>						required>
+					<input type="text" name="address" placeholder=""						required>
 				</div>
 			</div>
 			<div class="row">

@@ -63,7 +63,10 @@ public class Login extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("user_id", uid);
 
-				request.getRequestDispatcher("HomeScreen.jsp").forward(request, response);
+				out.println("<script>");
+				out.println("window.location.replace('HomeScreen.jsp')");
+				out.println("</script>");
+
 			} else {
 				out.println("<script>");
 				out.println("alert('Oops login failed please try again with correct credentials')");
