@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>New Account</title>
 </head>
 <style>
 * {
@@ -121,7 +120,7 @@ tr:nth-child(even) {
 }
 </style>
 <body>
-	<form action="Passbook">
+	<form action="chequeBook">
 		<div class="container">
 
 			<div class="row">
@@ -170,7 +169,7 @@ tr:nth-child(even) {
 
 			<div class="row">
 
-				<input type="submit" value="Submit" class="button"
+				<input type="submit" value="Apply" class="button"
 					style="margin-right: 60%; margin-top: 10%"> <input
 					type="submit" value="Cancel" class="button"
 					style="margin-right: -47%; margin-top: 10%">

@@ -113,7 +113,6 @@ border:none;
 <a href="profile.jsp" target="iframe_a"><b><i class="fas fa-user"></i> PROFILE</b></a>
 <a class="active" href="#home"><b><i class="fa fa-home" style="font-size:22px"></i> HOME</b></a>
 <a href="AccountDetails.jsp" target="iframe_a"><b><i class="fa fa-table"></i> ACCOUNT DETAILS</b></a>
- <a href="Passbook.jsp" target="iframe_a"><b><i class="fa fa-book"></i> E-PASSBOOK</b></a>
  <a href="#"><b><i class="fas fa-wallet"></i> BALANCE</b></a>
 	
   <a href="MoneyTransfer.jsp" target="iframe_a"><b><i class="fa fa-money"></i> TRANSFER MONEY</b></a>
@@ -124,8 +123,9 @@ border:none;
   <div class="dropdown-container">
     <a href="NewAccount.jsp" target="iframe_a">Apply for new account</a>
     <a href="LoanRequest.jsp" target="iframe_a">Apply for loan</a>
-     <a href="#">Apply for new passbook</a>
-     <a href="#">Apply for new cheque book</a>
+     <a href="Passbook.jsp" target="iframe_a">Apply for new passbook</a>
+     <a href="ChequeBook.jsp" target="iframe_a">Apply for new cheque book</a>
+     
     <a href="#">Close account</a>
   </div>
   <a href="Login.jsp"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>

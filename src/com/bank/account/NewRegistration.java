@@ -87,22 +87,6 @@ public class NewRegistration extends HttpServlet {
 		
 		try {
 			con = Connect.connectDb();
-			if(con==null)
-			{
-				System.out.println("Not Connected");
-			}
-			else
-			{
-				System.out.println("Connected");
-		
-			}
-			
-			
-		
-			
-			
-
-			
 		PreparedStatement stmt = con.prepareStatement("insert into user (user_name,email,password,address,contact,role,aadhar_url,aadhar_no,pan_url,pan_no)values(?,?,?,?,?,?,?,?,?,?)");	
 			
 	

@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
 			String password = request.getParameter("password");
 
 			PreparedStatement stmt = con
-					.prepareStatement("select user_name,password,user_id from user where user_name=? and password=?");
+					.prepareStatement("select user_name,role,password,user_id from user where user_name=? and password=?");
 
 			stmt.setString(1, name);
 			stmt.setString(2, password);
@@ -63,9 +63,19 @@ public class Login extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("user_id", uid);
 
+				
+				if(rs.getString("role").equalsIgnoreCase("ADMIN"))
+				{
+					out.println("<script>");
+					out.println("window.location.replace('AdminHome.jsp')");
+					out.println("</script>");
+				}else
+				{
+				
 				out.println("<script>");
 				out.println("window.location.replace('HomeScreen.jsp')");
 				out.println("</script>");
+				}
 
 			} else {
 				out.println("<script>");

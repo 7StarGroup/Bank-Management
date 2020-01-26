@@ -37,7 +37,7 @@ input[type=button]:hover {
 	
 }
 
-input[type=text] {
+input[type=text],input[type=password]{
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -84,7 +84,7 @@ h1 {
 
 				<tr>
 					<td>Password</td>
-					<td><input type="text" name="password" placeholder="password"
+					<td><input type="password" name="password" placeholder="password"
 						required></td>
 				</tr>
 				<tr>
