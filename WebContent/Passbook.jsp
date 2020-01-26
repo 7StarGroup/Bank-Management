@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Passbookr</title>
+<title>Passbook</title>
 </head>
 <style>
 * {
