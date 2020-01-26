@@ -53,11 +53,7 @@ public class Login extends HttpServlet {
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				/*
-				 * out.println("<script>"); out.println("alert('Success')");
-				 * out.println("</script>");
-				 */
-
+				
 				// setting session to this user
 				int uid = rs.getInt("user_id");
 				HttpSession session = request.getSession();

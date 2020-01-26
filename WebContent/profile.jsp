@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*"%>
+<%@page import="com.bank.db.Connect" %>
+ 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http//www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -79,8 +82,8 @@ String email;
 try
 {	
 	
-	Class.forName("com.mysql.jdbc.Driver");  
-	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","dipak");
+	
+	con=Connect.connectDb();
 	if(con==null)
 	{
 		System.out.println("Not Connedted");
@@ -164,7 +167,7 @@ System.out.println(e);
 										<label for="name">Name</label>
 										<div class="input-group pb-modalreglog-input-group">
 											<input type="text" class="form-control" id="adminname"
-												name="adminname" placeholder="Name" required="required">
+												name="adminname" placeholder="Name" required="required" value="<%=rs.getString(1)%>">
 											<span class="input-group-addon"><span
 												class="glyphicon glyphicon-lock"></span></span>
 										</div>
@@ -174,26 +177,18 @@ System.out.println(e);
 										<label for="email">Email</label>
 										<div class="input-group pb-modalreglog-input-group">
 											<input type="email" class="form-control" id="adminemail"
-												name="adminemail" placeholder="Email" required="required">
+												name="adminemail" placeholder="Email" required="required" value="<%=rs.getString(2)%>">
 											<span class="input-group-addon"><span
 												class="glyphicon glyphicon-lock"></span></span>
 										</div>
 									</div>
 
-									<div class="form-group">
-										<label for="password">Password</label>
-										<div class="input-group pb-modalreglog-input-group">
-											<input type="password" class="form-control" id="adminpassword"
-												name="adminpassword" placeholder="Password" required="required">
-											<span class="input-group-addon"><span
-												class="glyphicon glyphicon-lock"></span></span>
-										</div>
-									</div>
+									
 									<div class="form-group">
 										<label for="Address">Address</label>
 										<div class="input-group pb-modalreglog-input-group">
 											<input type="text" class="form-control" id="adminaddress"
-												name="adminaddress" placeholder="ADDRESS" required="required">
+												name="adminaddress" placeholder="address" required="required" value="<%=rs.getString(3)%>">
 											<span class="input-group-addon"><span
 												class="glyphicon glyphicon-lock"></span></span>
 										</div>
@@ -204,7 +199,7 @@ System.out.println(e);
 										<div class="input-group pb-modalreglog-input-group">
 											<input type="text" class="form-control" id="admincontact"
 												name="admincontact" placeholder="Contact"
-												required="required"> <span class="input-group-addon"><span
+												required="required" value="<%=rs.getString(4)%>"> <span class="input-group-addon"><span
 												class="glyphicon glyphicon-lock"></span></span>
 										</div>
 									</div>

@@ -46,11 +46,10 @@ public class editProfile extends HttpServlet {
 	    int current_user_id=(int)session.getAttribute("user_id");// getting current user name to edit their info
 		String name=request.getParameter("adminname");
 		String email=request.getParameter("adminemail");
-		String pwd=request.getParameter("adminpassword");
 		String address=request.getParameter("adminaddress");
 		String contact=request.getParameter("admincontact");
 		
-		System.out.println(name+email+pwd+address+contact+" and session -> "+current_user_id);
+	
 		
 		//update query for editing user info is remaining
 		try
@@ -65,24 +64,29 @@ public class editProfile extends HttpServlet {
 				System.out.println("Connected");
 			}
 			
-			stmt=con.prepareStatement("update user set user_name=?,email=?,password=?,address=?,contact=? where user_id=?");
+			stmt=con.prepareStatement("update user set user_name=?,email=?,address=?,contact=? where user_id=?");
 			stmt.setString(1, name);
 			stmt.setString(2, email);
-			stmt.setString(3, pwd);
-			stmt.setString(4, address);
-			stmt.setString(5, contact);
-			stmt.setInt(6, current_user_id);
+			stmt.setString(3, address);
+			stmt.setString(4, contact);
+			stmt.setInt(5, current_user_id);
 			
-			int test=stmt.executeUpdate();
-			if(test!=0)
+			int i=stmt.executeUpdate();
+			
+			if(i==0)
 			{
 				out.println("<script>");
-				out.println("alert('Yup..!! Updated information succsessfully ');window.location='HomeScreen.jsp';");
+				out.println("alert('Problem in Updation!')");
+				out.println("window.open('/profile.jsp')");
 				out.println("</script>");
 			}
 			else
 			{
-				System.out.println("not excecuted");
+				out.println("<script>");
+				out.println("alert('Profile Updated Successfully!')");
+				out.println("window.close()");
+				/*out.println("window.open('HomeScreen.jsp')");*/
+				out.println("</script>");
 			}
 			
 			
