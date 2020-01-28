@@ -120,7 +120,7 @@ border:none;
   
   <div class="dropdown-container">
     <a href="AddBranch.jsp" target="iframe_a">Add Branches</a>
-    <a href="#" target="iframe_a">Update Branch</a>
+    <a href="UpdateBranch.jsp" target="iframe_a">Update Branch</a>
      <a href="#" target="iframe_a">Remove Branch</a>
   </div>
    <button class="dropdown-btn"><b><i class="fa fa-check"></i> Requests</b>

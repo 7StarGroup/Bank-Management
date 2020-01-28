@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `bank` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `bank`;
+-- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
--- Host: localhost    Database: bank
+-- Host: 127.0.0.1    Database: bank
 -- ------------------------------------------------------
--- Server version	5.7.29-log
+-- Server version	5.5.5-10.1.37-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -19,7 +21,6 @@
 -- Table structure for table `account`
 --
 
-use bank;
 DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -52,13 +53,13 @@ DROP TABLE IF EXISTS `branch`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `branch` (
-  `branch_id` bigint(20) NOT NULL,
+  `branch_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `branch_name` varchar(45) DEFAULT NULL,
   `branch_address` varchar(45) DEFAULT NULL,
   `branch_contact` varchar(45) DEFAULT NULL,
   `ifsc_code` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`branch_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +68,7 @@ CREATE TABLE `branch` (
 
 LOCK TABLES `branch` WRITE;
 /*!40000 ALTER TABLE `branch` DISABLE KEYS */;
-INSERT INTO `branch` VALUES (1000,'sangvi','pune','888888888','ADSW243De'),(1001,'pimple','aundh','1234567890','ASDFG44DE'),(1002,'demo','demo','0909090909','DEMODEMO');
+INSERT INTO `branch` VALUES (11,'Balewadi','balewadi pune','9011564104','1234');
 /*!40000 ALTER TABLE `branch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +181,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Mak','makk@gmail.com','mak123','Pune','1234567',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'demo','demo@gmail.com','demo','demo','22224','user',NULL,12341234,NULL,'1234567890',NULL,NULL),(3,'demo','demo@gmail.com','demo','demo','22224','user',NULL,9090909,NULL,'0909090909',NULL,NULL);
+INSERT INTO `user` VALUES (1,'Mak','makk@gmail.com','mak123','Pune','1234567','ADMIN',NULL,NULL,NULL,NULL,NULL,NULL),(2,'demo','demo@gmail.com','demo','demo','22224','user',NULL,12341234,NULL,'1234567890',NULL,NULL),(3,'demo','demo@gmail.com','demo','demo','22224','user',NULL,9090909,NULL,'0909090909',NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,4 +257,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-26 10:04:35
+-- Dump completed on 2020-01-28 23:35:45

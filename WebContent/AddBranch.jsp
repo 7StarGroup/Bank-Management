@@ -119,13 +119,13 @@ tr:nth-child(even) {
 </script>
 <body>
 	<div class="container">
-		<form action="NewRegistration" method="post" enctype="multipart/form-data">
+		<form action="AddBranch" method="post" >
 			<div class="row">
 				<div class="col-25">
 					<label for="Name"><b>Branch Name :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="branchname" placeholder="Branch Name"
+					<input type="text" name="branch" placeholder="Branch Name"
 						required>
 				</div>
 			</div>
@@ -134,7 +134,7 @@ tr:nth-child(even) {
 					<label for="Mobile No"><b>IFSC Code:</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="Ifsccode" placeholder="IFSC CODE"
+					<input type="text" name="ifsc" placeholder="IFSC CODE"
 						required>
 				</div>
 			</div>
