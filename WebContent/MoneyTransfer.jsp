@@ -75,7 +75,7 @@ input[type=submit]:hover {
 </style>
 <body>
 <div class="container">
-  <form action="#">
+  <form action="TransferMoney" method="POST">
   <div class="row">
     <div class="col-25">
       <label for="Account Number"><b>Account Number :</b></label>
@@ -97,15 +97,15 @@ input[type=submit]:hover {
       <label for="Recipient Name"><b>Recipient Name :</b></label>
     </div>
     <div class="col-75">
-      <input type="text" name="lastname" placeholder="Recipient name.." required>
+      <input type="text" name="FullName" placeholder="Recipient name.." required>
     </div>
   </div>
   <div class="row">
     <div class="col-25">
-      <label for="subject"><b>What's this for?</b></label>
+      <label for="subject"><b>Amount :</b></label>
     </div>
     <div class="col-75">
-      <textarea name="subject" placeholder="Write something.." style="height:100px"></textarea>
+           <input type="text" name="Amount" placeholder="Amount" required>
     </div>
   </div>
   <div class="row">
