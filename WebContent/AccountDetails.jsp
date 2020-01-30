@@ -57,13 +57,20 @@ try
 		u_email=rs.getString(1);
 	}
 	
-	String sql="select user_name,account_id,ifsc_code,account_type,branch_name,contact,email from user,account,branch,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and account.branch_id_fk=branch.branch_id and email=?";
+	String sql="select user_name,account_id,ifsc_code,account_type,branch_name,contact,email from user,account,branch,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and account.branch_id_fk=branch.branch_id and user_id=?";
 	
 	stmt =con.prepareStatement(sql);
-	stmt.setString(1, u_email);
+	stmt.setInt(1, user_id);
 	rs=stmt.executeQuery();
 	
-	rs.next();
+	if(rs.next())
+	{
+		System.out.println("YEs");
+	}
+	else
+	{
+		System.out.println("NOO");
+	}
 	
 }catch(Exception e)
 {

@@ -123,10 +123,11 @@ border:none;
   <div class="dropdown-container">
     <a href="NewAccount.jsp" target="iframe_a">Apply for new account</a>
     <a href="LoanRequest.jsp" target="iframe_a">Apply for loan</a>
-     <a href="Passbook.jsp" target="iframe_a">Apply for new passbook</a>
-     <a href="ChequeBook.jsp" target="iframe_a">Apply for new cheque book</a>
-     
-    <a href="#">Close account</a>
+
+     <a href="Apply_Passbook.jsp">Apply for new passbook</a>
+     <a href="Apply_ChequeBook.jsp">Apply for new cheque book</a>
+    <a href="Apply_Close.jsp">Close account</a>
+
   </div>
   <a href="Login.jsp"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>
 </div>
