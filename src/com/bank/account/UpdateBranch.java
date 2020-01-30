@@ -18,7 +18,7 @@ import com.bank.db.Connect;
 /**
  * Servlet implementation class AddBranch
  */
-@WebServlet("/AddBranch")
+@WebServlet("/UpdateBranch")
 public class UpdateBranch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
