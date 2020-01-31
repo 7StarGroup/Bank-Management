@@ -126,6 +126,7 @@ public class TransferMoney extends HttpServlet {
 	    		
 	    		out.println("<script>");
 				out.println("alert('Transaction successful');");
+				out.println("window.location('HomeScreen.jsp')");
 				out.println("</script>");
 	    		
 			

@@ -89,7 +89,7 @@ h1 {
 				</tr>
 				<tr>
 					<td><input type="submit" class="button" value="Login"></td>
-					<td><input type="button" class="button" value="Cancel"></td>
+					<td><a href="Welcome.jsp"><input type="button" class="button" value="Cancel"></a></td>
 				</tr>
 			</table>
 		</form>

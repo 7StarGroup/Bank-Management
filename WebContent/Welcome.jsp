@@ -347,7 +347,7 @@ color : black;
 			
 		</div>
 		<div class="heading">
-				<h1 class="head">WELCOME TO ONLINE STUDENT<span> PORTAL</span></h1><br>
+				<h1 class="head">WELCOME TO ONLINE BANKING<span> PORTAL</span></h1><br>
 				
 				<div class="btns">
 					<a class="btn1" href="Login.jsp">Click Here To Login</a>
