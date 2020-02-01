@@ -141,52 +141,19 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 
 
 
-		<% Statement st = null;
+		<tr>
+			<th>Branch Code</th>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Contact</th>
+			<th>IFSC</th>
+			<th>Edit</th>
+			<th>Delete</th>
 
-st = con.createStatement();
- rs = st.executeQuery("SELECT * FROM branch");
-ResultSetMetaData rsMetaData = rs.getMetaData();
-int numberOfColumns = rsMetaData.getColumnCount();
-for (int i = 1; i < numberOfColumns + 1; i++) {
-     /*  String columnName = 
-      String tableName = rsMetaData.getTableName(i);
-      System.out.println(columnName); */
-%>
-
-
-
-
-
-
-
-
-
-		<th><%=rsMetaData.getColumnName(i) %></th>
-
-
-		<!--   <tr>
-  <th>Branch Code</th>
-  <th>Name</th>
-  <th>Address</th>
-  <th>Email</th>
-  <th>Contact</th>
-  <th>Experience(in Yrs)</th>
- -->
-
-
-
-
-
-
-		<%
-}%>
-
-		<th>Edit</th>
-		<th>Delete</th>
-
-		<%while(rs.next()){ eid=rs.getInt(1);
+			<%while(rs.next()){ eid=rs.getInt(1);
   String str="***";
 %>
+		
 		<tr>
 			<td id="myid"><%=rs.getInt(1) %></td>
 			<td><%=rs.getString(2) %></td>
@@ -206,7 +173,7 @@ for (int i = 1; i < numberOfColumns + 1; i++) {
 	<!-- Add modal -->
 	<!-- editmodal -->
 
-	<form action="updateBranch" method="post" autocomplete="on">
+	<form action="UpdateBranch" method="post" >
 		<div class="container pb-modalreglog-container">
 			<div class="row">
 				<div class="col-xs-12 col-md-4 col-md-offset-4">
@@ -220,7 +187,7 @@ for (int i = 1; i < numberOfColumns + 1; i++) {
 										aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
-									<h4 class="modal-title" id="myModalLabel">Login form</h4>
+									
 								</div>
 								<div class="modal-body">
 
@@ -259,14 +226,14 @@ for (int i = 1; i < numberOfColumns + 1; i++) {
 									<div class="form-group">
 										<label for="password">Branch Contact</label>
 										<div class="input-group pb-modalreglog-input-group">
-											<input type="email" class="form-control" id="branchcontact"
-												name="branchcontact" placeholder="Email" required="required">
+											<input type="text" class="form-control" id="branchcontact"
+												name="branchcontact" placeholder="Contact" required="required">
 											<span class="input-group-addon"><span
 												class="glyphicon glyphicon-lock"></span></span>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="password">Branch IFSC</label>
+										<label for="IFSC">Branch IFSC</label>
 										<div class="input-group pb-modalreglog-input-group">
 											<input type="text" class="form-control" id="branchIfsc"
 												name="branchIfsc" placeholder="IFSC" required="required">
@@ -291,7 +258,7 @@ for (int i = 1; i < numberOfColumns + 1; i++) {
 
 
 	<!-- Delete -->
-	<form action="deleteBranch" method="post" autocomplete="on">
+	<form action="DeleteBranch" method="post" >
 		<div class="container pb-modalreglog-container">
 			<div class="row">
 				<div class="col-xs-12 col-md-4 col-md-offset-4">
@@ -344,10 +311,8 @@ for (int i = 1; i < numberOfColumns + 1; i++) {
 			document.getElementById("branchId").value = this.cells[0].innerHTML;
 			document.getElementById("branchname").value = this.cells[1].innerHTML;
 			document.getElementById("branchaddress").value = this.cells[2].innerHTML;
-			document.getElementById("Branchmail").value = this.cells[3].innerHTML;
-			document.getElementById("branchcontact").value = this.cells[4].innerHTML;
-			document.getElementById("branchIfsc").value = this.cells[5].innerHTML;
-			
+			document.getElementById("branchcontact").value = this.cells[3].innerHTML;
+			document.getElementById("branchIfsc").value = this.cells[4].innerHTML;
 			//for delete modal Branch code is fetched
 			document.getElementById("code").value = this.cells[0].innerHTML;
 		}

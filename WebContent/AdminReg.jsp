@@ -15,16 +15,15 @@ body {
 	height: 100%;
 	overflow: scroll;
 }
-
+input:invalid {
+    border-color: red;
+}
+input,
+input:valid {
+    border-color: #ccc;
+}
 input[type=text] select, textarea {
 	width: 100%;
-	padding: 12px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	resize: vertical;
-}
-.IFSC {
-	width: 50%;
 	padding: 12px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -115,7 +114,7 @@ tr:nth-child(even) {
 	background-color: #4CAF50; /* Green */
 	border: none;
 	color: white;
-	padding: 12px 23px;
+	padding: 5px 23px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
@@ -126,52 +125,113 @@ tr:nth-child(even) {
 </script>
 <body>
 	<div class="container">
-		<form action="AddBranch" method="post" >
+		<form action="AdminReg" method="post" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-25">
-					<label for="Name"><b>Branch Name :</b></label>
+					<label for="Name"><b>Your Name :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="branch" placeholder="Branch Name"
+					<input type="text"  name="name" placeholder="your full name"
 						required>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="Mobile No"><b>IFSC Code:</b></label>
+					<label for="Mobile No"><b>Mobile No :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="ifscInitial" value="BIF"  class="IFSC" style="width: 10%" placeholder="BIFSC"
-						>
-						<input type="text" name="ifsc" class="IFSC" style="width:50%" placeholder="IFSC CODE"
+					<input type="text" name="moblie" placeholder="your moblie number"
 						required>
-						
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="Branch Contact"><b>Branch Contact :</b></label>
+					<label for="Email"><b>Email :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="contact" placeholder="Branch Contact"
+					<input type="text" name="email" placeholder="your email id"
 						required>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="Paasword"><b>Password :</b></label>
+				</div>
+				<div class="col-75">
+					<input type="password" name="password" placeholder="your Password"
+						required>
+				</div>
+			</div>
+			<div class="row"></div>
 			<div class="row">
 				<div class="col-25">
 					<label for="Address"><b>Address :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="password" name="address" placeholder="Address"
+					<input type="text" name="address" placeholder="your address"
 						required>
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-25">
+					<label for="aadharnumber"><b>Aadhar number :</b></label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="aadhar" name="aadharnumber"
+						placeholder="Your aadhar number" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="pannumber"><b>Pan number :</b></label>
+				</div>
+				<div class="col-75">
+					<input type="text" name="pannumber" placeholder="Your Pan number"
+						required>
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="col-25">
+					<label for="AccountType"><b>Account Type:</b></label>
+				</div>
+				<div class="col-75">
+					<br>saving :<input type="radio" name="Type" value="saving"
+						required> Current:<input type="radio" name="Type"
+						value="saving" required><br>
+				</div>
+			</div>
+			<div class="row"></div>
+			<div class="row">
 
 				<table>
+					<tr>
+						<th>Documents</th>
+						<th>Upload File</th>
+					</tr>
+					<tr>
+						<td>Aadhar</td>
+						<td>
+							<div class="col-75">
+								<br><input type="file" name="Adocument" multiple required><br>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Pan</td>
+						<td>
+							<div class="col-75">
+							
+								<br>  <input type="file" name="Pdocument" multiple required></form><br>
+								
+							</div>
+						</td>
+					</tr>
+					
 				</table>
-				<input type="submit" value="AddBranch" class="button" style="margin-right: 60%; margin-top : 10%">
-					<input type="reset" value="Cancel" class="button" style="margin-right: -47%; margin-top :10%">
+				<input type="submit" value="Submit" class="button" style="margin-right: 60%; margin-top : 10%">
+					<input type="reset" value="Reset" class="button" style="margin-right: -47%; margin-top :10%">
 			</div>
 		</form>
 	</div>

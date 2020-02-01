@@ -113,15 +113,13 @@ border:none;
 <a href="profile.jsp" target="iframe_a"><b><i class="fas fa-user"></i> PROFILE</b></a>
 <a class="active" href="#home"><b><i class="fa fa-home" style="font-size:22px"></i>Home</b></a>
 <a href="CustomerDetails.jsp" target="iframe_a"><b><i class="fa fa-address-card"></i>Customer Details </b></a>
- <a href="Branches.jsp" target="iframe_a"><b><i class="fa fa-book"></i>View Branches</b></a>
     <button class="dropdown-btn"><b><i class="fa fa-bank"></i>Branches</b>
     <i class="fa fa-caret-down"></i>
   </button>
   
   <div class="dropdown-container">
     <a href="AddBranch.jsp" target="iframe_a">Add Branches</a>
-    <a href="UpdateBranch.jsp" target="iframe_a">Update Branch</a>
-     <a href="#" target="iframe_a">Remove Branch</a>
+    <a href="UpdateBranch.jsp">Update Branch</a>
   </div>
    <button class="dropdown-btn"><b><i class="fa fa-check"></i> Requests</b>
     <i class="fa fa-caret-down"></i>
@@ -131,6 +129,14 @@ border:none;
     <a href="#" target="iframe_a">Loan Request</a>
     <a href="#" target="iframe_a">Close Account Request</a>
      <a href="#" target="iframe_a">Chequebook request</a>
+  </div>
+   <button class="dropdown-btn"><b><i class="fa fa-check"></i> ADMIN</b>
+    <i class="fa fa-caret-down"></i>
+  </button>
+  
+  <div class="dropdown-container">
+    <a href="AdminReg.jsp" target="iframe_a">Add Admin</a>
+    <a href="ViewAdmins.jsp" >View Admin</a>
   </div>
   
   <a href="Login.jsp"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>
