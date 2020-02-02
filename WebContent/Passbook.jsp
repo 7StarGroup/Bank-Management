@@ -4,7 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<<<<<<< HEAD
 <title>New Account</title>
+=======
+<title>Passbook</title>
+>>>>>>> e5555bdbfda39582057a5991b86161325be2e620
 </head>
 <style>
 * {

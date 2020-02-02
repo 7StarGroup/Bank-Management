@@ -1,11 +1,13 @@
 package com.bank.account;
 
+import java.util.Date;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +37,7 @@ public class TransferMoney extends HttpServlet {
 			
 			System.out.println("Screen called");
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con=Connect.connectDb();
+			 con=Connect.connectDb();
 			if(con==null)
 			{
 				System.out.println("Database Not Connected");
@@ -49,7 +51,7 @@ public class TransferMoney extends HttpServlet {
 			System.out.println(e);
 		}
 		
-		
+				
 			
 		 HttpSession session=request.getSession(false);  
 	        int UEmail=(int)session.getAttribute("user_id");
@@ -100,18 +102,24 @@ public class TransferMoney extends HttpServlet {
 	    		ps1.setString(2,bAcc);
 	    		ps1.executeUpdate();
 	    		
+	    		//getting date for saving date in transaction table
+	    		SimpleDateFormat frmt=new SimpleDateFormat("dd/MM/yyyy");
+	    		Date date=new Date();
+	    		String current_date= frmt.format(date);
 	    		
 	    		PreparedStatement ps2;
-	    		ps2=con.prepareStatement("insert into transactions(tran_type,user_id_fk,amount)values(?,?,?)");
+	    		ps2=con.prepareStatement("insert into transactions(tran_type,user_id_fk,transac_date,amount)values(?,?,current_date(),?)");
 	    		ps2.setString(1,"DEBIT");
 	    		ps2.setString(2,bAcc);
+	    	//	ps2.setString(3, current_date);
 	    		ps2.setInt(3,Amount);
 	    		ps2.executeUpdate();
 	    		
 	    		PreparedStatement ps3;
-	    		ps3=con.prepareStatement("insert into transactions(tran_type,user_id_fk,amount)values(?,?,?)");
+	    		ps3=con.prepareStatement("insert into transactions(tran_type,user_id_fk,transac_date,amount)values(?,?,current_date(),?)");
 	    		ps3.setString(1,"CREDIT");
 	    		ps3.setString(2,bName);
+	    		//ps3.setString(3, current_date);
 	    		ps3.setInt(3,Amount);
 	    		ps3.executeUpdate();
 	    		
@@ -120,11 +128,7 @@ public class TransferMoney extends HttpServlet {
 				out.println("alert('Transaction successful');");
 				out.println("</script>");
 	    		
-	    		
-	    		
-	    		
-	    			
-	    				
+			
 	    		}
 	    		
 	    		
@@ -137,19 +141,6 @@ public class TransferMoney extends HttpServlet {
 	        	
 	        	
 	        	
-	        
-	        	
-	        
-	        	
-	        		
-	        	
-	        		
-	        
-	        
-	        
-	        
-	
-
 
 	private String ChkBal(int UEmail, int amount) {
 	
