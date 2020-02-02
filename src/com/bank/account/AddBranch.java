@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,6 +29,10 @@ public class AddBranch extends HttpServlet {
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		
+		String ifscInitial=request.getParameter("ifscInitial");
+		String ifscCode=request.getParameter("ifsc");
+		String finalIfsc=ifscInitial.concat(ifscCode);
+		
 		try {
 			String branchname=request.getParameter("branch");
 			System.out.println("b"+branchname);
@@ -35,7 +40,7 @@ public class AddBranch extends HttpServlet {
 			ps.setString(1, request.getParameter("branch"));
 			ps.setString(2, request.getParameter("address"));
 			ps.setString(3, request.getParameter("contact"));
-			ps.setString(4, request.getParameter("ifsc"));
+			ps.setString(4, finalIfsc);
 			
 			int i=ps.executeUpdate();
 			if(i!=0)
@@ -43,7 +48,10 @@ public class AddBranch extends HttpServlet {
 				PrintWriter out=response.getWriter();
 				out.println("<script>");
 				out.println("alert('Branch created successfully.')");
+				
 				out.println("</script>");
+				
+				
 			}
 			else
 			{

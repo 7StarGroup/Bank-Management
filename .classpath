@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
@@ -10,5 +11,14 @@
 	<classpathentry kind="lib" path="C:/Users/Dolby/Desktop/apache-tomcat-7.0.88/lib/mysql-connector-java-8.0.11.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Dolby/Desktop/apache-tomcat-7.0.88/lib/servlet-api.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+=======
+	<classpathentry kind="lib" path="F:/Jar Files/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="lib" path="F:/Jar Files/servlet-api.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+>>>>>>> dev_makarand
 	<classpathentry kind="output" path="bin"/>
 </classpath>
