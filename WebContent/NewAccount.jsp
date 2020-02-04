@@ -35,7 +35,7 @@ label {
 	display: inline-block;
 }
 
-input[type=submit] {
+input[type=submit], input[type=button]{
 	background-color: #4CAF50;
 	color: white;
 	padding: 12px 20px;
@@ -243,7 +243,7 @@ tr:nth-child(even) {
 					
 				</table>
 				<input type="submit" value="Submit" class="button" style="margin-right: 60%; margin-top : 10%">
-					<input type="submit" value="Cancel" class="button" style="margin-right: -47%; margin-top :10%">
+					<a href="Welcome.jsp"><input type="button" value="Cancel" class="button" style="margin-right: -47%; margin-top :10%"></a>
 			</div>
 		</form>
 	</div>

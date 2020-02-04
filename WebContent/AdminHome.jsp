@@ -104,7 +104,7 @@ border:none;
 
 <div class="container">
 
-<iframe  src="Images/bank5.jpg" name="iframe_a" scrolling="no"></iframe>
+<iframe  src="Images/bank5.jpg" name="iframe_a" scrolling="auto"></iframe>
 </div>
 
 
@@ -140,7 +140,7 @@ border:none;
   
   <div class="dropdown-container">
     <a href="AdminReg.jsp" target="iframe_a">Add Admin</a>
-    <a href="ViewAdmins.jsp" >View Admin</a>
+    <a href="ViewAdmins.jsp" target="iframe_a">View Admin</a>
   </div>
   
   <a href="Login.jsp"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>

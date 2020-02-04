@@ -31,9 +31,10 @@
 
 table {
 	font-family: sans-serif;
-	margin-top: 10%;
-	border-collapse: collapse;
-	width: 100%;
+    margin-top: 10%;
+    border-collapse: collapse;
+    width: 96%;
+    margin-left: 21px;
 }
 
 th {
@@ -118,11 +119,10 @@ margin-top: -20px;  */
 
 <body>
 
-<div class="BankName" align="center">
 		
-			<h2>Admin List</h2>
+<center><h2>Account Information</h2></center>
 		
-	</div>
+
 	<%
 		/* if(session.getAttribute("username")==null)
 		{

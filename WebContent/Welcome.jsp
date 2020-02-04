@@ -192,11 +192,11 @@ color : black;
 /* Footer */
 .site-footer
 {
-  background-color:#26272b;
-  padding:45px 0 20px;
-  font-size:15px;
-  line-height:24px;
-  color:#737373;
+  background-color: #26272b;
+    padding: 5px 0 8px;
+    font-size: 15px;
+    line-height: 24px;
+    color: #737373;
 }
 .site-footer hr
 {
@@ -342,7 +342,7 @@ color : black;
 			<div class="logo"><img src="Images/logo.jpg" style="height: 80px; width: 100px;"></div>
 			<ul>
 				
-				<li><a href="NewAccount.jsp">Sign Up</a></li>
+				<li><a href="NewAccount.jsp">Create New Account</a></li>
 			</ul>
 			
 		</div>
