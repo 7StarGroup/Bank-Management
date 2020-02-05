@@ -57,7 +57,7 @@ try
 		u_email=rs.getString(1);
 	}
 	
-	String sql="select user_name,account_id,ifsc_code,account_type,branch_name,contact,email from user,account,branch,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and account.branch_id_fk=branch.branch_id and user_id=?";
+	String sql="select user_name,account_id,ifsc_code,account_type,branch_name,contact,email,avail_bal from user,account,branch,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and account.branch_id_fk=branch.branch_id and user_id=?";
 	
 	stmt =con.prepareStatement(sql);
 	stmt.setInt(1, user_id);
@@ -120,6 +120,11 @@ System.out.println(e);
     <tr>
     <td><b>Email :</b></td>
    <td><%=rs.getString(7) %></td>
+    </tr>
+    
+    <tr>
+    <td><b>Available Balance :</b></td>
+   <td><%=rs.getInt(8) %></td>
     </tr>
     
     

@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
 			String password = request.getParameter("password");
 
 			PreparedStatement stmt = con
-					.prepareStatement("select user_name,role,password,user_id from user where user_name=? and password=?");
+					.prepareStatement("select user_id,role from user where email=? and password=?");
 
 			stmt.setString(1, name);
 			stmt.setString(2, password);

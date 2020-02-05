@@ -156,7 +156,7 @@ public class TransferMoney extends HttpServlet {
 		{
 			int bal=Integer.parseInt(rs.getString("avail_bal"));
 			
-			if(bal>amount)
+			if(bal>=amount)
 			{
 				return rs.getInt("user_id")+"";
 			}
