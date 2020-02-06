@@ -112,9 +112,8 @@ border:none;
 <div class="sidenav">
 <a href="profile.jsp" target="iframe_a"><b><i class="fas fa-user"></i> PROFILE</b></a>
 
-<a class="active" href="#home"><b><i class="fa fa-home" style="font-size:22px"></i> HOME</b></a>
-<a href="CustomerDetails.jsp" target="iframe_a"><b><i class="fa fa-address-card"></i> CUSTOMER DETAILS</b></a>
- <a href="Branches.jsp" target="iframe_a"><b><i class="fa fa-book"></i> VIEW BRANCHES</b></a>
+<a class="active" href="AdminHome.jsp"><b><i class="fa fa-home" style="font-size:22px"></i> HOME</b></a>
+<a href="SearchCustomer.jsp" target="iframe_a"><b><i class="fa fa-address-card"></i> CUSTOMER DETAILS</b></a>
     <button class="dropdown-btn"><b><i class="fa fa-bank"></i> BRANCHES</b>
 
     <i class="fa fa-caret-down"></i>
@@ -122,7 +121,7 @@ border:none;
   
   <div class="dropdown-container">
     <a href="AddBranch.jsp" target="iframe_a">Add Branches</a>
-    <a href="UpdateBranch.jsp">Update Branch</a>
+    <a href="UpdateBranch.jsp" target="iframe_a">Update Branch</a>
   </div>
    <button class="dropdown-btn"><b><i class="fa fa-check"></i> REQUEST</b>
     <i class="fa fa-caret-down"></i>

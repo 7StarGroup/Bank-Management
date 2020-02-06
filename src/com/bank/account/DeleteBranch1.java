@@ -41,6 +41,7 @@ public class DeleteBranch1 extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('Branch deleted successfully.')");
+				out.println("window.parent.location.reload();");
 				out.println("</script>");
 
 			}

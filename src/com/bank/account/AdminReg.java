@@ -87,6 +87,7 @@ public class AdminReg extends HttpServlet {
 			{
 				out.println("<script>");
 				out.println("alert('Admin registered succesfully')");
+				out.println("window.parent.location.reload();");
 				out.println("</script>");
 			}
 				

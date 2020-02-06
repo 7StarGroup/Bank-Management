@@ -36,14 +36,22 @@ public class UpdateBranch extends HttpServlet {
 			ps.setString(3, request.getParameter("branchcontact"));
 			ps.setString(4, request.getParameter("branchIfsc"));
 			ps.setLong(5, Long.parseLong(request.getParameter("branchId")));
-
+			PrintWriter out = response.getWriter();
 			int i = ps.executeUpdate();
 			System.out.println("Query executed");
 			if (i != 0) {
-				PrintWriter out = response.getWriter();
+				
 				out.println("<script>");
 				out.println("alert('Branch updated successfully.')");
-				out.println("window.location.href='AdminHome.jsp'");
+				out.println("window.parent.location.reload();");
+				/*out.println("window.parent.location.replace('HomeScreen.jsp')");*/
+				out.println("</script>");
+				
+			}else
+			{
+				out.println("<script>");
+				out.println("alert('Problem in updation.')");
+				out.println("window.parent.location.replace('HomeScreen.jsp')");
 				out.println("</script>");
 			}
 

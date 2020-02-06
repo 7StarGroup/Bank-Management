@@ -41,21 +41,24 @@ public class AddBranch extends HttpServlet {
 			ps.setString(2, request.getParameter("address"));
 			ps.setString(3, request.getParameter("contact"));
 			ps.setString(4, finalIfsc);
-			
+			PrintWriter out=response.getWriter();
 			int i=ps.executeUpdate();
 			if(i!=0)
 			{
-				PrintWriter out=response.getWriter();
-				out.println("<script>");
-				out.println("alert('Branch created successfully.')");
 				
+				out.println("<script>");
+				out.println("alert('Branch added successfully.')");
+				out.println("window.parent.location.reload();");
 				out.println("</script>");
 				
 				
 			}
 			else
 			{
-				System.out.println("error");
+				out.println("<script>");
+				out.println("alert('Problem in adding new branch.')");
+				out.println("window.parent.location.reload();");
+				out.println("</script>");
 			}
 			
 		} catch (SQLException e) {

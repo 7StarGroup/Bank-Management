@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*" %>
+<%@ page import="com.bank.db.Connect"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -89,73 +91,84 @@ td, th {
 </style>
 <body>
 <div class="container">
-  <form action="#">
-  <div class="row">
-    <div class="col-25">
-      <label for="From"><b>Customer Account Number</b></label>
-    </div>
-    <div class="col-75">
-      <input type="text" name="accountnumber" placeholder="Account Number" required>
-    </div>
-  </div>
- 
+<center><h2>Customer Details</h2></center>
+  
+<% Connection con=null; 
+	PreparedStatement stmt;
+    ResultSet rs;  
+    		
+    		long accountNumber=Long.parseLong(request.getParameter("accountnumber"));
+    		  con=Connect.connectDb();
+    		  
+    		  stmt=con.prepareStatement("select user_name,account_id,ifsc_code,account_type,branch_name,contact,email,is_active from user,account,branch,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and account.branch_id_fk=branch.branch_id and account_id=?");
+    		stmt.setLong(1,accountNumber);
+    		  rs=stmt.executeQuery();	  
+			
 
-  <div class="row">
-    <input type="submit" value="Search">													
-  </div>
-  </form>
+
+%>  
   
-  <table>
+  
+  <table >
 <col width="200px">
 <col width="200px">
   
- 
+ <%if(rs.next()){ %>
   <tr>
     <td><b>Account Holder :</b></td>
-    <td></td>
+    <td><%=rs.getString(1)%></td>
     </tr>
     
    
   </tr>
   <tr>
     <td><b>Account Number :</b></td>
-    <td></td>
+    <td><%=rs.getLong(2)%></td>
    
    
   </tr>
   <tr>
     <td><b>IFSC Code :</b></td>
-   <td></td>
+   <td><%=rs.getString(3)%></td>
     </tr>
     
     </tr>
   <tr>
     <td><b>Account Type :</b></td>
-   <td></td>
+   <td><%=rs.getString(4)%></td>
     </tr>
     
     <tr>
     <td><b>Branch :</b></td>
-   <td></td>
+   <td><%=rs.getString(5)%></td>
     </tr>
     
     <tr>
     <td><b>Contact No :</b></td>
-   <td></td>
+   <td><%=rs.getString(6)%></td>
     </tr>
     
     <tr>
     <td><b>Email :</b></td>
-   <td></td>
+   <td><%=rs.getString(7)%></td>
     </tr>
     
     <tr>
     <td><b>IsActive :</b></td>
-   <td></td>
+    <%if(rs.getBoolean(8)){%>
+   <td>YES</td>
+   <% }else{%>
+    <td>NO</td><%} %>
     </tr>
     <tr>
     
-  
+ <%}else{%>
+	 
+	 <script>alert("Account details not found");
+	 window.location.open.href="AdminHome.jsp";
+	 </script>
+	 
+ <% } %> 
     </table>
   </div>
   </body>

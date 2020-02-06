@@ -36,7 +36,7 @@ public class chequebookRequest extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('cheque request accepted.')");
-				out.println("window.location.href='HomeScreen.jsp'");
+				out.println("window.parent.location.reload();");
 				out.println("</script>");
 
 			}

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>View Admins</title>
 
 <link rel="stylesheet"
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
@@ -120,7 +120,7 @@ margin-top: -20px;  */
 <body>
 
 		
-<center><h2>Account Information</h2></center>
+<center><h2>Admin Information</h2></center>
 		
 
 	<%
@@ -162,8 +162,8 @@ margin-top: -20px;  */
 			<td id="myid"><%=rs.getInt(1)%></td>
 			<td><%=rs.getString(2)%></td>
 			<td><%=rs.getString(3)%></td>
-			<td><%=rs.getString(4)%></td>
 			<td><%=rs.getString(5)%></td>
+			<td><%=rs.getString(6)%></td>
 
 		</tr>
 		<%

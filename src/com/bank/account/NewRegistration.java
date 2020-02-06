@@ -52,7 +52,7 @@ public class NewRegistration extends HttpServlet {
 		 Part part = request.getPart("Adocument");
 	        String fileName = extractFileName(part);//file name
 	       
-	        String savePath="F:\\Project Exam\\To send\\bank\\WebContent\\Images" + File.separator + fileName;
+	        String savePath="G:\\Bank Management\\Bank(Git)\\bank\\WebContent\\Images" + File.separator + fileName;
 	           
 	     
 	        File fileSaveDir = new File(savePath);

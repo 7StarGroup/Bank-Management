@@ -31,9 +31,10 @@
 
 table {
 	font-family: sans-serif;
-	margin-top: 10%;
-	border-collapse: collapse;
-	width: 100%;
+    margin-top: 10%;
+    border-collapse: collapse;
+    width: 96%;
+    margin-left: 21px;
 }
 
 th {
@@ -57,11 +58,12 @@ tr:nth-child(even) {
 	background-color: #4CAF50; /* Green */
 	border: none;
 	color: white;
-	padding: 15px 32px;
+	padding: 8px 24px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
+	border-radius: 6px;
 }
 
 #addnew {
@@ -161,10 +163,10 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 			<td><%=rs.getString(4) %></td>
 			<td><%=rs.getString(5) %></td>
 
-			<td><a href="#myModal1" class="button" data-toggle="modal"
+			<td style="text-align: center;"><a href="#myModal1" class="button" data-toggle="modal"
 				style="text-decoration: none;">Edit</a></td>
-			<td><a href="#myModal2" class="button" data-toggle="modal"
-				style="text-decoration: none;"><i class="fa fa-trash"></i>Delete</a></td>
+			<td style="text-align: center;"><a href="#myModal2" class="button" data-toggle="modal"
+				style="text-decoration: none;"><i class="fa fa-trash"></i> Delete</a></td>
 		</tr>
 		<%
 }

@@ -133,7 +133,7 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="branch" placeholder="Branch Name"
-						required>
+						required pattern="[A-Za-z_ ]{1,50}" title="It should contain only alphabets">
 				</div>
 			</div>
 			<div class="row">
@@ -144,7 +144,8 @@ tr:nth-child(even) {
 					<input type="text" name="ifscInitial" value="BIF"  class="IFSC" style="width: 10%" placeholder="BIFSC"
 						>
 						<input type="text" name="ifsc" class="IFSC" style="width:50%" placeholder="IFSC CODE"
-						required>
+						required pattern="[A-Z0-9]{}" 
+       title="It should contain digits and characters">
 						
 				</div>
 			</div>
@@ -154,7 +155,8 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="contact" placeholder="Branch Contact"
-						required>
+						required pattern="[0-9]{10}" 
+       title="It should contain only digits and length must be 10 digit">
 				</div>
 			</div>
 			<div class="row">
@@ -162,7 +164,7 @@ tr:nth-child(even) {
 					<label for="Address"><b>Address :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="password" name="address" placeholder="Address"
+					<input type="text" name="address" placeholder="Address"
 						required>
 				</div>
 			</div>

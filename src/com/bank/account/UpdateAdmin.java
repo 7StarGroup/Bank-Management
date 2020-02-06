@@ -39,7 +39,7 @@ public class UpdateAdmin extends HttpServlet {
 			PrintWriter pw=response.getWriter();
 			pw.println("<script>");
 			pw.println("alert('Admin Updated succesfully')");
-			pw.println("window.location.href='AdminHome.jsp'");
+			pw.println("window.parent.location.reload();");
 			pw.println("</script>");
 		}
 		}catch(Exception e)

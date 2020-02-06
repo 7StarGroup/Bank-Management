@@ -169,8 +169,8 @@ td {
 										<label for="name">Name</label>
 										<div class="input-group pb-modalreglog-input-group">
 											<input type="text" class="form-control" id="adminname"
-												name="adminname" placeholder="Name" required="required"
-												value="<%=rs.getString(1)%>"> <span
+												name="adminname" placeholder="Name" required="required" 
+												value="<%=rs.getString(1)%>" pattern="[A-Za-z_ ]{1,50}" title="It should contain only alphabets"> <span
 												class="input-group-addon"><span
 												class="glyphicon glyphicon-lock"></span></span>
 										</div>
@@ -204,7 +204,8 @@ td {
 										<div class="input-group pb-modalreglog-input-group">
 											<input type="text" class="form-control" id="admincontact"
 												name="admincontact" placeholder="Contact"
-												required="required" value="<%=rs.getString(4)%>"> <span
+												required="required" value="<%=rs.getString(4)%>" pattern="[7-9]{1}[0-9]{9}" 
+       title="It should contain only digits and length must be 10 digit"> <span
 												class="input-group-addon"><span
 												class="glyphicon glyphicon-lock"></span></span>
 										</div>

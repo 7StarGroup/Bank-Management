@@ -132,7 +132,7 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text"  name="name" placeholder="your full name"
-						required>
+						required pattern="[A-Za-z_ ]{1,50}" title="It should contain only alphabets">
 				</div>
 			</div>
 			<div class="row">
@@ -141,7 +141,8 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="moblie" placeholder="your moblie number"
-						required>
+						required pattern="[7-9]{1}[0-9]{9}" 
+       title="It should contain only digits and length must be 10 digit">
 				</div>
 			</div>
 			<div class="row">
@@ -159,7 +160,7 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="password" name="password" placeholder="your Password"
-						required>
+						required pattern=".{5,10}" required title="password should be of min 5 or max 10 characters">
 				</div>
 			</div>
 			<div class="row"></div>
@@ -178,7 +179,8 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" id="aadhar" name="aadharnumber"
-						placeholder="Your aadhar number" required>
+						placeholder="Your aadhar number" required pattern="[0-9]{16}" 
+       title="It should contain only digits and length must be 16 digit">
 				</div>
 			</div>
 			<div class="row">
@@ -187,7 +189,8 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="pannumber" placeholder="Your Pan number"
-						required>
+						required pattern="[A-Z0-9]{12}" 
+       title="It should contain digits and characters and length must be 12 digit">
 				</div>
 			</div>
 			

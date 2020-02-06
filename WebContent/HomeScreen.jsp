@@ -111,9 +111,9 @@ border:none;
 
 <div class="sidenav">
 <a href="profile.jsp" target="iframe_a"><b><i class="fas fa-user"></i> PROFILE</b></a>
-<a class="active" href="#home"><b><i class="fa fa-home" style="font-size:22px"></i> HOME</b></a>
+<a class="active" href="HomeScreen.jsp"><b><i class="fa fa-home" style="font-size:22px"></i> HOME</b></a>
 <a href="AccountDetails.jsp" target="iframe_a"><b><i class="fa fa-table"></i> ACCOUNT DETAILS</b></a>
- <a href="#"><b><i class="fas fa-wallet"></i> BALANCE</b></a>
+ <a href="ViewBalance.jsp" target="iframe_a"><b><i class="fas fa-wallet"></i> BALANCE</b></a>
 	
   <a href="MoneyTransfer.jsp" target="iframe_a"><b><i class="fa fa-money"></i> TRANSFER MONEY</b></a>
   <a href="TransactionHistory.jsp" target="iframe_a"><b><i class="fa fa-history"></i> TRANSACTION HISTORY</b></a>
@@ -129,7 +129,7 @@ border:none;
     <a href="Apply_Close.jsp">Close account</a>
 
   </div>
-  <a href="Login.jsp"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>
+  <a href="Login.jsp" ><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>
 </div>
 
 
