@@ -110,6 +110,11 @@ public class AdminReg extends HttpServlet {
 	        }
 	        return "";
 	    }
+
+
+	public static void main(String[] args) {
+		
+	}
 		
 		
 	}
