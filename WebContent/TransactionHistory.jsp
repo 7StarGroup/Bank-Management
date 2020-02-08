@@ -40,7 +40,7 @@ td, th {
 				con = Connect.connectDb();
 				int user_id = (int) session.getAttribute("user_id");
 
-				String sql = "select user_name,transaction_id,tran_type,transac_date,amount from transactions,user where transactions.user_id_fk=user.user_id and user_id=?";
+				String sql = "select transaction_id,user_name,tran_type,transac_date,amount from transactions,user where transactions.user_id_fk=user.user_id and user_id=?";
 
 				PreparedStatement stmt = con.prepareStatement(sql);
 				stmt.setInt(1, user_id);
@@ -50,11 +50,16 @@ td, th {
 				System.out.println(e);
 			}
 		%>
+		
+		<col width="140px">
+		<col width="250px">
+		<col width="170px">
+		<col width="160px">
 		<col width="200px">
-		<col width="200px">
+
 		<tr>
-			<th>User</th>
-			<th>Transaction Number</th>
+			<th>Transaction Id</th>
+			<th>Account Holder</th>
 			<th>Transaction Type </th>
 			<th>Transaction Date </th>
 			<th>Amount</th>
@@ -68,11 +73,11 @@ td, th {
 
 			<!-- here wants to display data in table from above querys output.. ex.  instead akshay kamble rs.getString  -->
 
-			<td><%=rs.getString(1)%></td>
-			<td><%=rs.getInt(2) %></td>
+			<td><%=rs.getInt(1)%></td>
+			<td><%=rs.getString(2) %></td>
 			<td><%=rs.getString(3)%></td>
 			<td><%=rs.getDate(4)%></td>
-			<td><%=rs.getInt(5) %>rs</td>
+			<td><%=rs.getInt(5) %>.00 Rs</td>
 			
 		</tr>
 		<%

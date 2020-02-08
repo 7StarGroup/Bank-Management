@@ -73,7 +73,7 @@ try
    </tr>
    <tr>
     <td><b>Account Balance :</b></td>
-    <td><%=rs.getString(2) %></td>
+    <td><%=rs.getString(2) %>.00 Rs</td>
    </tr>
 <%}}catch(Exception e)
 {

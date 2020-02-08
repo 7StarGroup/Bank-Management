@@ -78,6 +78,7 @@ body {
 {
 margin-left:192px;
 color: darkcyan;
+/* background-color: yellowgreen; */
 /* background: yellow;
 margin-top: -20px;  */
 }
@@ -99,7 +100,7 @@ border:none;
 
 
 <div class="BankName">
- <center><h2>Welcome To Online Bank...!</h2></center>
+ <center><h1>||Welcome to online banking||</h1></center>
 </div>
 
 <div class="container">
@@ -110,6 +111,7 @@ border:none;
 
 
 <div class="sidenav">
+<a href="#"><img style="height: 40px; width: 80px;" src="Images/logo.jpg"></a>
 <a href="profile.jsp" target="iframe_a"><b><i class="fas fa-user"></i> PROFILE</b></a>
 <a class="active" href="HomeScreen.jsp"><b><i class="fa fa-home" style="font-size:22px"></i> HOME</b></a>
 <a href="AccountDetails.jsp" target="iframe_a"><b><i class="fa fa-table"></i> ACCOUNT DETAILS</b></a>

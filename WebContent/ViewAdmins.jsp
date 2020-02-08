@@ -31,7 +31,7 @@
 
 table {
 	font-family: sans-serif;
-    margin-top: 10%;
+    margin-top: 3%;
     border-collapse: collapse;
     width: 96%;
     margin-left: 21px;
@@ -136,7 +136,8 @@ margin-top: -20px;  */
 		PreparedStatement ps;
 		ResultSet rs;
 		con = Connect.connectDb();
-		ps = con.prepareStatement("select * from user");
+		ps = con.prepareStatement("select * from user where role=?");
+		ps.setString(1,"admin");
 		rs = ps.executeQuery();
 		int eid = 0;
 	%>
