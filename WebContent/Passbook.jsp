@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@page import="java.sql.*" %>
+	<%@page import="com.bank.db.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<<<<<<< HEAD
-<title>New Account</title>
-=======
+
+
 <title>Passbook</title>
->>>>>>> e5555bdbfda39582057a5991b86161325be2e620
+
+
 </head>
 <style>
 * {
@@ -125,7 +127,23 @@ tr:nth-child(even) {
 }
 </style>
 <body>
-	<form action="Passbook">
+
+
+<%  Connection con=null;
+PreparedStatement ps;
+ResultSet rs;
+
+	 con=Connect.connectDb();
+	 Integer user_id = (Integer) session.getAttribute("user_id");
+	 String sql="select user_name,contact,account_id_fk from user,user_account where user_id=user_account.user_id_fk and user_id=?";
+				ps=con.prepareStatement(sql);
+				ps.setInt(1,user_id);
+			rs=ps.executeQuery();	
+			int eid=0;
+			while(rs.next())
+			{
+				 %>
+	<form action="PassbookRequest " method="post">
 		<div class="container">
 
 			<div class="row">
@@ -134,7 +152,7 @@ tr:nth-child(even) {
 					<label for="A/cNo"><b>Your A/c Number:</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="accountnumber" placeholder="userId"
+					<input type="text" name="accountnumber" value=<%=rs.getLong(3) %>
 						disabled>
 				</div>
 				<!-- 	<div class="col-75">
@@ -148,7 +166,7 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="name" pattern="[A-Za-z]"
-						placeholder="Your name" disabled>
+						value=<%=rs.getString(1) %> disabled>
 				</div>
 			</div>
 			<div class="row">
@@ -156,7 +174,7 @@ tr:nth-child(even) {
 					<label for="Mobile No"><b>Mobile No :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="moblie" placeholder="Contact" disabled>
+					<input type="text" name="moblie" value=<%=rs.getString(2) %> disabled>
 				</div>
 			</div>
 			<div class="row"></div>
@@ -170,7 +188,7 @@ tr:nth-child(even) {
 						<option>Old is filled</option></select>
 				</div>
 			</div>
-
+<%} %>
 
 			<div class="row">
 

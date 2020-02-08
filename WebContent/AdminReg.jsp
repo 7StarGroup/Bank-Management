@@ -15,7 +15,13 @@ body {
 	height: 100%;
 	overflow: scroll;
 }
-
+input:invalid {
+    border-color: red;
+}
+input,
+input:valid {
+    border-color: #ccc;
+}
 input[type=text] select, textarea {
 	width: 100%;
 	padding: 12px;
@@ -35,7 +41,7 @@ label {
 	display: inline-block;
 }
 
-input[type=submit], input[type=button]{
+input[type=submit],input[type=reset] {
 	background-color: #4CAF50;
 	color: white;
 	padding: 12px 20px;
@@ -119,13 +125,13 @@ tr:nth-child(even) {
 </script>
 <body>
 	<div class="container">
-		<form action="NewRegistration" method="post" enctype="multipart/form-data">
+		<form action="AdminReg" method="post" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-25">
 					<label for="Name"><b>Your Name :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="name" placeholder="your full name"
+					<input type="text"  name="name" placeholder="your full name"
 						required pattern="[A-Za-z_ ]{1,50}" title="It should contain only alphabets">
 				</div>
 			</div>
@@ -228,7 +234,7 @@ tr:nth-child(even) {
 					
 				</table>
 				<input type="submit" value="Submit" class="button" style="margin-right: 60%; margin-top : 10%">
-					<a href="Welcome.jsp"><input type="button" value="Cancel" class="button" style="margin-right: -47%; margin-top :10%"></a>
+					<input type="reset" value="Reset" class="button" style="margin-right: -47%; margin-top :10%">
 			</div>
 		</form>
 	</div>

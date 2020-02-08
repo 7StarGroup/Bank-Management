@@ -72,7 +72,8 @@ td, th {
 			<td><%=rs.getInt(2) %></td>
 			<td><%=rs.getString(3)%></td>
 			<td><%=rs.getDate(4)%></td>
-			<td><%=rs.getInt(5) %></td>
+			<td><%=rs.getInt(5) %>rs</td>
+			
 		</tr>
 		<%
 			}

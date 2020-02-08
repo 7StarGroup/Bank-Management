@@ -2,13 +2,22 @@
     <wb-module deploy-name="Bank">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <dependent-module archiveName="servlet-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/Bank/WebContent/WEB-INF/lib/servlet-api.jar">
+        <dependent-module archiveName="servlet-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Dolby/Desktop/apache-tomcat-7.0.88/lib/servlet-api.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="mysql-connector-java-8.0.11.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/Bank/WebContent/WEB-INF/lib/mysql-connector-java-8.0.11.jar">
+        <dependent-module archiveName="jsp-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Dolby/Desktop/apache-tomcat-7.0.88/lib/jsp-api.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="jsp-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/Bank/WebContent/WEB-INF/lib/jsp-api.jar">
+        <dependent-module archiveName="mysql-connector-java-8.0.11.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Dolby/Desktop/apache-tomcat-7.0.88/lib/mysql-connector-java-8.0.11.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mysql-connector.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/akki/Akshay/mysql-connector.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsp.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/akki/Akshay/jsp.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="servlet.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/akki/Akshay/servlet.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="Bank"/>

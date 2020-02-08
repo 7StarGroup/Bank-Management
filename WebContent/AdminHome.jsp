@@ -104,33 +104,42 @@ border:none;
 
 <div class="container">
 
-<iframe  src="Images/bank5.jpg" name="iframe_a" scrolling="no"></iframe>
+<iframe  src="Images/bank5.jpg" name="iframe_a" scrolling="auto"></iframe>
 </div>
 
 
 
 <div class="sidenav">
 <a href="profile.jsp" target="iframe_a"><b><i class="fas fa-user"></i> PROFILE</b></a>
-<a class="active" href="#home"><b><i class="fa fa-home" style="font-size:22px"></i>Home</b></a>
-<a href="CustomerDetails.jsp" target="iframe_a"><b><i class="fa fa-address-card"></i>Customer Details </b></a>
- <a href="Branches.jsp" target="iframe_a"><b><i class="fa fa-book"></i>View Branches</b></a>
-    <button class="dropdown-btn"><b><i class="fa fa-bank"></i>Branches</b>
+
+<a class="active" href="AdminHome.jsp"><b><i class="fa fa-home" style="font-size:22px"></i> HOME</b></a>
+<a href="SearchCustomer.jsp" target="iframe_a"><b><i class="fa fa-address-card"></i> CUSTOMER DETAILS</b></a>
+    <button class="dropdown-btn"><b><i class="fa fa-bank"></i> BRANCHES</b>
+
     <i class="fa fa-caret-down"></i>
   </button>
   
   <div class="dropdown-container">
     <a href="AddBranch.jsp" target="iframe_a">Add Branches</a>
-    <a href="#" target="iframe_a">Update Branch</a>
-     <a href="#" target="iframe_a">Remove Branch</a>
+    <a href="UpdateBranch.jsp" target="iframe_a">Update Branch</a>
   </div>
-   <button class="dropdown-btn"><b><i class="fa fa-check"></i> Requests</b>
+   <button class="dropdown-btn"><b><i class="fa fa-check"></i> REQUEST</b>
     <i class="fa fa-caret-down"></i>
   </button>
   
   <div class="dropdown-container">
-    <a href="#" target="iframe_a">Loan Request</a>
-    <a href="#" target="iframe_a">Close Account Request</a>
-     <a href="#" target="iframe_a">Chequebook request</a>
+    <a href="LoanRequest.jsp" target="iframe_a">Loan Request</a>
+    <a href="CancelRequest.jsp" target="iframe_a">Close Account Request</a>
+     <a href="ChequebookRequest.jsp" target="iframe_a">Chequebook request</a>
+     <a href="PassbookRequest.jsp" target="iframe_a">Passbook request</a>
+  </div>
+   <button class="dropdown-btn"><b><i class="fa fa-check"></i> ADMIN</b>
+    <i class="fa fa-caret-down"></i>
+  </button>
+  
+  <div class="dropdown-container">
+    <a href="AdminReg.jsp" target="iframe_a">Add Admin</a>
+    <a href="ViewAdmins.jsp" target="iframe_a">View Admin</a>
   </div>
   
   <a href="Login.jsp"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>

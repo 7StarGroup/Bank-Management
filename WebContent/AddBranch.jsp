@@ -23,6 +23,13 @@ input[type=text] select, textarea {
 	border-radius: 4px;
 	resize: vertical;
 }
+.IFSC {
+	width: 50%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+}
 input[type=password],input[type=text]{
 	width: 100%;
 	padding: 12px;
@@ -119,14 +126,14 @@ tr:nth-child(even) {
 </script>
 <body>
 	<div class="container">
-		<form action="NewRegistration" method="post" enctype="multipart/form-data">
+		<form action="AddBranch" method="post" >
 			<div class="row">
 				<div class="col-25">
 					<label for="Name"><b>Branch Name :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="branchname" placeholder="Branch Name"
-						required>
+					<input type="text" name="branch" placeholder="Branch Name"
+						required pattern="[A-Za-z_ ]{1,50}" title="It should contain only alphabets">
 				</div>
 			</div>
 			<div class="row">
@@ -134,8 +141,12 @@ tr:nth-child(even) {
 					<label for="Mobile No"><b>IFSC Code:</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="Ifsccode" placeholder="IFSC CODE"
-						required>
+					<input type="text" name="ifscInitial" value="BIF"  class="IFSC" style="width: 10%" placeholder="BIFSC"
+						>
+						<input type="text" name="ifsc" class="IFSC" style="width:50%" placeholder="IFSC CODE"
+						required pattern="[A-Z0-9]{}" 
+       title="It should contain digits and characters">
+						
 				</div>
 			</div>
 			<div class="row">
@@ -144,7 +155,8 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="contact" placeholder="Branch Contact"
-						required>
+						required pattern="[0-9]{10}" 
+       title="It should contain only digits and length must be 10 digit">
 				</div>
 			</div>
 			<div class="row">
@@ -152,7 +164,7 @@ tr:nth-child(even) {
 					<label for="Address"><b>Address :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="password" name="address" placeholder="Address"
+					<input type="text" name="address" placeholder="Address"
 						required>
 				</div>
 			</div>

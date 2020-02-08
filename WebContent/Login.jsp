@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <style>
 body {
@@ -65,7 +65,7 @@ h1 {
 }
 </style>
 <body>
-
+ 
 	<div class="login">
 		<h1 class="fonts" style="margin-left:40% ">Login</h1>
 
@@ -78,18 +78,18 @@ h1 {
 				<tr>
 					<td>Username</td>
 					<td><input type="text" name="username" placeholder="username"
-						required></td>
+						required pattern="[A-Za-z_ ]{1,50}" title="It should contain only alphabets"></td>
 				</tr>
 				<tr></tr>
 
 				<tr>
 					<td>Password</td>
 					<td><input type="password" name="password" placeholder="password"
-						required></td>
+						required pattern=".{4,10}" required title="password should be of min 5 or max 10 characters"></td>
 				</tr>
 				<tr>
 					<td><input type="submit" class="button" value="Login"></td>
-					<td><input type="button" class="button" value="Cancel"></td>
+					<td><a href="Welcome.jsp"><input type="button" class="button" value="Cancel"></a></td>
 				</tr>
 			</table>
 		</form>

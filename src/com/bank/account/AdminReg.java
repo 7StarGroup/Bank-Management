@@ -19,21 +19,13 @@ import javax.servlet.http.Part;
 import com.bank.db.Connect;
 
 
-@WebServlet("/NewRegistration")
+@WebServlet("/AdminReg")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
 maxFileSize = 1024 * 1024 * 10, // 10MB
 maxRequestSize = 1024 * 1024 * 50)
-public class NewRegistration extends HttpServlet {
+public class AdminReg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Connection con;
-       
-   
-    public NewRegistration() {
-        super();
-        
-    }
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		ResultSet rs1 = null,rs2 = null;
@@ -52,7 +44,7 @@ public class NewRegistration extends HttpServlet {
 		 Part part = request.getPart("Adocument");
 	        String fileName = extractFileName(part);//file name
 	       
-	        String savePath="G:\\Bank Management\\Bank(Git)\\bank\\WebContent\\Images" + File.separator + fileName;
+	        String savePath="F:\\Project Exam\\To send\\bank\\WebContent\\Images" + File.separator + fileName;
 	           
 	     
 	        File fileSaveDir = new File(savePath);
@@ -83,54 +75,22 @@ public class NewRegistration extends HttpServlet {
 			stmt.setString(3,password);
 			stmt.setString(4,address);
 			stmt.setString(5,mob);
-			stmt.setString(6,"Customer");
+			stmt.setString(6,"Admin");
 			stmt.setString(7,savePath);
 			stmt.setString(8,aadhar);
 			stmt.setString(9,savePath1);
 			stmt.setString(10,pan);
 			
-			stmt.executeUpdate();
-			
-			
-			
-			PreparedStatement stmt2 = con.prepareStatement("insert into account (account_type,min_balance,branch_id_fk) values(?,1500,101)");
-			
-			stmt2.setString(1,Type);
-			
-			stmt2.executeUpdate();
-			
-			
-			Statement st=con.createStatement();
-			Statement st1=con.createStatement();
-			 rs1=st.executeQuery("select max(user_id) from user");
-			 rs2=st1.executeQuery("select max(account_id) from account");
-			
-			while((rs1.next())&&(rs2.next()))
+			int i=stmt.executeUpdate();
+			if(i!=0)
+				
 			{
-				int a= rs1.getInt(1);
-				int b=rs2.getInt(1);
-				PreparedStatement stmt3=con.prepareStatement(" insert into user_account(user_id_fk,account_id_fk,is_active,avail_bal,is_deleted) values(?,?,0,1500,0)");
-				stmt3.setInt(1,a);
-				stmt3.setInt(2,b);
-				
-				stmt3.executeUpdate();
-				
-				
-				
-				
+				out.println("<script>");
+				out.println("alert('Admin registered succesfully')");
+				out.println("window.parent.location.reload();");
+				out.println("</script>");
 			}
-			
-			
-			
-
-			rs1.close();
-			rs2.close();
-			
-	
-			
-			
-			
-		
+				
 	}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -153,8 +113,4 @@ public class NewRegistration extends HttpServlet {
 		
 		
 	}
-
-
-
-
 

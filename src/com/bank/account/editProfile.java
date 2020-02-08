@@ -77,15 +77,14 @@ public class editProfile extends HttpServlet {
 			{
 				out.println("<script>");
 				out.println("alert('Problem in Updation!')");
-				out.println("window.open('/profile.jsp')");
+				out.println("window.parent.location.reload();");
 				out.println("</script>");
 			}
 			else
 			{
 				out.println("<script>");
 				out.println("alert('Profile Updated Successfully!')");
-				out.println("window.close()");
-				/*out.println("window.open('HomeScreen.jsp')");*/
+				out.println("window.parent.location.reload();");
 				out.println("</script>");
 			}
 			

@@ -89,7 +89,8 @@ input[type=submit]:hover {
       <label for="IFSC Code"><b>IFSC Code :</b></label>
     </div>
     <div class="col-75">
-      <input type="text"  name="ifsc" placeholder="Recipient IFSC code.." required>
+      <input type="text"  name="ifsc" placeholder="Recipient IFSC code.." required pattern="[A-Z0-9]{}" 
+       title="It should contain digits and characters">
     </div>
   </div>
   <div class="row">
@@ -97,7 +98,7 @@ input[type=submit]:hover {
       <label for="Recipient Name"><b>Recipient Name :</b></label>
     </div>
     <div class="col-75">
-      <input type="text" name="FullName" placeholder="Recipient name.." required>
+      <input type="text" name="FullName" placeholder="Recipient name.." required pattern="[A-Za-z_ ]{1,50}" title="It should contain only alphabets">
     </div>
   </div>
   <div class="row">
@@ -105,7 +106,8 @@ input[type=submit]:hover {
       <label for="subject"><b>Amount :</b></label>
     </div>
     <div class="col-75">
-           <input type="text" name="Amount" placeholder="Amount" required>
+           <input type="text" name="Amount" placeholder="Amount" required pattern="[0-9]{}" 
+       title="It should contain only digits">
     </div>
   </div>
   <div class="row">
