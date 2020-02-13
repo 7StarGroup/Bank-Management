@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+		<%@page import="java.sql.*" %>
+	<%@page import="com.bank.db.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -121,7 +123,27 @@ tr:nth-child(even) {
 }
 </style>
 <body>
-	<form action="save">
+<%
+Connection con=null;
+PreparedStatement ps;
+ResultSet rs;
+
+	 con=Connect.connectDb();
+	 Integer user_id = (Integer) session.getAttribute("user_id");
+	 String sql="select account_id_fk,user_name,contact,address,aadhar_no,pan_no from user,user_account where user_id=user_account.user_id_fk and user_id=?";
+				ps=con.prepareStatement(sql);
+				ps.setInt(1,user_id);
+			rs=ps.executeQuery();	
+			int eid=0;
+			while(rs.next())
+			{
+				 %>
+
+
+
+
+
+	<form action="RateOfInterest" method="post">
 		<div class="container">
 
 			<div class="row">
@@ -131,7 +153,7 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="accountnumber"
-						placeholder="userId" >
+						placeholder="Account Number" value=<%=rs.getLong(1)%> disabled >
 				</div>
 			<!-- 	<div class="col-75">
 					<a href="ViewUser"><input type="button" class="button" value="Okay"></a>
@@ -144,7 +166,7 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="name" pattern="[A-Za-z]"
-						placeholder="Your name"
+						placeholder="Your name" value=<%=rs.getString(2)%>
 						disabled>
 				</div>
 			</div>
@@ -154,7 +176,7 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="moblie" placeholder=""
-						disabled>
+					value=<%=rs.getString(3)%>	disabled>
 				</div>
 			</div>
 			<div class="row"></div>
@@ -163,7 +185,7 @@ tr:nth-child(even) {
 					<label for="Address"><b>Address :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="address" placeholder=""						required>
+					<input type="text" name="address" placeholder="Your address" required  value=<%=rs.getString(4)%> disabled>
 				</div>
 			</div>
 			<div class="row">
@@ -171,29 +193,73 @@ tr:nth-child(even) {
 					<label for="aadharnumber"><b>Aadhar number :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="aadhar" name="aadharnumber" min=12 max=12
-						placeholder="Your aadhar number" required>
+					<input type="text" id="aadhar" name="aadharnumber" 
+						placeholder="Your aadhar number" required value=<%=rs.getInt(5)%> disabled>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="pannumber"><b>company name :</b></label>
+					<label for="pannumber"><b>Pan number :</b></label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="companyname" min=15 max=15
-						placeholder="your company name" required>
+					<input type="text" id="pan" name="pannumber" 
+						placeholder="Your pan number" required value=<%=rs.getString(6)%> disabled>
 				</div>
 			</div>
 
+<%}%>
+			<div class="row">
+				<div class="col-25">
+					<label for="company"><b>company name :</b></label>
+				</div>
+				<div class="col-75">
+					<input type="text" name="companyname" 
+						placeholder="your company name" required>
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-25">
+					<label for="type"><b>Type of Loan:</b></label>
+				</div>
+				<div class="col-75">
+					<select name="type"><option>Home Loan</option><option>Vehicle Loan</option><option>Personal Loan</option></select>
 
-			<div class="row"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="months"><b>For Months:</b></label>
+				</div>
+				<div class="col-75">
+					<select name="years"><option>3</option>
+						<option>9</option>
+						<option>12</option>
+						<option>24</option>
+					</select>
+				</div>
+			</div>
+			<input type="submit" value="See RateOfInterest" class="button">
+			
+			<div class="row">
+				<div class="col-25">
+					<label for="rateofinterest"><b>Rate of Interest :</b></label>
+				</div>
+				<div class="col-75">
+					<input type="text" name="companyname" 
+						placeholder="your company name" value=<%=session.getAttribute("rateOfInterest") %> required>
+				</div>
+			</div>
+			
+			<br>
+			<!-- <div class="row"></div>
 			<div class="row">
 
 				<table>
 					<tr>
 						<th>Documents</th>
 						<th>Upload File</th>
-						<th>Save</th>
+					
 					</tr>
 					<tr>
 						<td>Aadhar</td>
@@ -202,30 +268,26 @@ tr:nth-child(even) {
 								<br> <input type="file" name="document" multiple required><br>
 							</div>
 						</td>
-						<td><form action="viewUser">
-								<input type="button" class="button" value="Save" required>
-							</form></td>
+						
 					</tr>
 					<tr>
 						<td>Pan</td>
 						<td>
 							<div class="col-75">
-								<form action="savedocument">
+								
 									<br> <input type="file" name="document" multiple required><br>
-								</form>
+								
 							</div>
 						</td>
-						<form action="savedocument">
-							<td><input type="submit" class="button" value="Save"
-								required></td>
-						</form>
+					
+						
 					</tr>
 				</table>
 				<input type="submit" value="Submit" class="button"
 					style="margin-right: 60%; margin-top: 10%"> <input
 					type="submit" value="Cancel" class="button"
 					style="margin-right: -47%; margin-top: 10%">
-			</div>
+			</div> -->
 	</form>
 	</div>
 </body>

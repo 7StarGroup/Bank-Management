@@ -165,7 +165,7 @@ td, th {
  <%}else{%>
 	 
 	 <script>alert("Account details not found");
-	 window.location.open.href="AdminHome.jsp";
+	 window.parent.location.reload();
 	 </script>
 	 
  <% } %> 

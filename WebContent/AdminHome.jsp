@@ -142,6 +142,14 @@ border:none;
     <a href="AdminReg.jsp" target="iframe_a">Add Admin</a>
     <a href="ViewAdmins.jsp" target="iframe_a">View Admin</a>
   </div>
+  <button class="dropdown-btn"><b><i class="fa fa-check"></i> LOAN</b>
+    <i class="fa fa-caret-down"></i>
+  </button>
+  
+  <div class="dropdown-container">
+    <a href="AddLoan.jsp" target="iframe_a">Add Loan Details</a>
+    <a href="viewLoanTypes.jsp" target="iframe_a">Update Lon Details</a>
+  </div>
   
   <a href="Login.jsp"><b><i class="fa fa-sign-out"></i> LOGOUT</b></a>
 </div>
