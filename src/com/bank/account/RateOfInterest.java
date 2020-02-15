@@ -25,8 +25,7 @@ public class RateOfInterest extends HttpServlet {
 		String type=request.getParameter("type");
 		String year=request.getParameter("years");
 		
-		
-		System.out.println("Type"+type+" Year"+year);
+
 		PreparedStatement ps=null;
 		ResultSet rs;
 		PrintWriter pw=response.getWriter();
@@ -34,7 +33,7 @@ public class RateOfInterest extends HttpServlet {
 		try {
 			Connection con = Connect.connectDb();
 			ps=con.prepareStatement(
-					"select rate_of_interest from Loan where loan_type=? and no_of_years=?");
+					"select rate_of_interest,loan_id from Loan where loan_type=? and no_of_years=?");
 			ps.setString(1,type);
 			ps.setString(2,year);
 			rs=ps.executeQuery();
@@ -43,6 +42,8 @@ public class RateOfInterest extends HttpServlet {
 			{
 				
 				session.setAttribute("rateOfInterest",rs.getString(1));
+				session.setAttribute("loanType",type);
+				session.setAttribute("loanId",rs.getInt(2));
 				
 				pw.println("<script type='text/javascript'>");
 				pw.println("location='LoanRequest.jsp';");

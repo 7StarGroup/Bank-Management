@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `bank` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `bank`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: bank
+-- Host: localhost    Database: bank
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.37-MariaDB
+-- Server version	5.7.22-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -53,13 +51,13 @@ DROP TABLE IF EXISTS `branch`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `branch` (
-  `branch_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `branch_id` bigint(20) NOT NULL,
   `branch_name` varchar(45) DEFAULT NULL,
   `branch_address` varchar(45) DEFAULT NULL,
   `branch_contact` varchar(45) DEFAULT NULL,
   `ifsc_code` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`branch_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +66,7 @@ CREATE TABLE `branch` (
 
 LOCK TABLES `branch` WRITE;
 /*!40000 ALTER TABLE `branch` DISABLE KEYS */;
-INSERT INTO `branch` VALUES (11,'Balewadi','balewadi pune','9011564104','1234');
+INSERT INTO `branch` VALUES (1000,'sangvi','pune','888888888','ADSW243De'),(1001,'pimple','aundh','1234567890','ASDFG44DE'),(1002,'demo','demo','0909090909','DEMODIU');
 /*!40000 ALTER TABLE `branch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +83,7 @@ CREATE TABLE `loan` (
   `rate_of_interest` varchar(45) DEFAULT NULL,
   `no_of_years` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`loan_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='			';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COMMENT='			';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,6 +92,7 @@ CREATE TABLE `loan` (
 
 LOCK TABLES `loan` WRITE;
 /*!40000 ALTER TABLE `loan` DISABLE KEYS */;
+INSERT INTO `loan` VALUES (1,'Personal Loan','9','12'),(2,'Personal Loan','9','12'),(3,'Personal Loan','9','12'),(4,'Home Loan','5','24');
 /*!40000 ALTER TABLE `loan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +136,7 @@ CREATE TABLE `transactions` (
   `amount` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`transaction_id`),
   KEY `user_id_fk_idx` (`user_id_fk`)
-) ENGINE=InnoDB AUTO_INCREMENT=502 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=510 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +145,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` VALUES (501,'deposit',1,NULL,NULL);
+INSERT INTO `transactions` VALUES (501,'deposit',1,NULL,NULL),(502,'DEBIT',1,'2020-01-30 00:00:00',500),(503,'CREDIT',2,'2020-01-30 00:00:00',500),(504,'DEBIT',1,'2020-01-30 00:00:00',500),(505,'CREDIT',2,'2020-01-30 00:00:00',500),(506,'DEBIT',1,'2020-02-06 00:00:00',500),(507,'CREDIT',2,'2020-02-06 00:00:00',500),(508,'DEBIT',1,'2020-02-06 00:00:00',1),(509,'CREDIT',2,'2020-02-06 00:00:00',1);
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,7 +180,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Mak','makk@gmail.com','mak123','Pune','1234567','ADMIN',NULL,NULL,NULL,NULL,NULL,NULL),(2,'demo','demo@gmail.com','demo','demo','22224','user',NULL,12341234,NULL,'1234567890',NULL,NULL),(3,'demo','demo@gmail.com','demo','demo','22224','user',NULL,9090909,NULL,'0909090909',NULL,NULL);
+INSERT INTO `user` VALUES (1,'Mak ','mak@gmail.com','mak123','mumbai','7945545442','',NULL,12345667,NULL,'123456','',''),(2,'Gaurav','gaurav@gmail.com','gaurav123','pune','8788422224','admin',NULL,12341234,NULL,'1234567890',NULL,NULL),(3,'demo','demo@gmail.com','demo123','demo','22224','user',NULL,9090909,NULL,'0909090909',NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +212,7 @@ CREATE TABLE `user_account` (
 
 LOCK TABLES `user_account` WRITE;
 /*!40000 ALTER TABLE `user_account` DISABLE KEYS */;
-INSERT INTO `user_account` VALUES (2000,1,100,'',5000,'\0'),(2001,2,101,'',50000,'\0'),(2002,3,102,'',4000,'\0');
+INSERT INTO `user_account` VALUES (2000,1,100,'',3499,'\0'),(2001,2,101,'',51501,'\0'),(2002,3,102,'\0',4000,'\0');
 /*!40000 ALTER TABLE `user_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,13 +224,14 @@ DROP TABLE IF EXISTS `user_loan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user_loan` (
-  `user_loan_id` bigint(20) NOT NULL,
+  `user_loan_id` int(11) NOT NULL AUTO_INCREMENT,
   `loan_id_fk` bigint(20) DEFAULT NULL,
   `user_id_fk` bigint(20) DEFAULT NULL,
   `salary_slip_url` text,
   `company_name` text,
   `is_Sanctioned` bit(1) DEFAULT NULL,
   PRIMARY KEY (`user_loan_id`),
+  UNIQUE KEY `user_loan_id` (`user_loan_id`),
   KEY `loan_id_fk` (`loan_id_fk`),
   KEY `user_id_fk` (`user_id_fk`),
   CONSTRAINT `loan_id_fk` FOREIGN KEY (`loan_id_fk`) REFERENCES `loan` (`loan_id`),
@@ -257,4 +257,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-28 23:35:45
+-- Dump completed on 2020-02-15 13:39:32
