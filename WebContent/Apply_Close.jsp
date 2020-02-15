@@ -28,17 +28,17 @@ try
 	
 	if(rs.next())
 	{
-		int check=rs.getInt(1);
+		boolean check=rs.getBoolean(1);
 		long avail_bal=rs.getLong(2);
 		if(avail_bal>0)
 		{
 			out.println("<script>");
-			out.println("alert('Sorry your acoount balance is more !!!');window.location = 'http://localhost:8080/Bank/HomeScreen.jsp';");
+			out.println("alert('Sorry your acoount balance is more Please withdraw the amount !!!');window.location = 'http://localhost:8080/Bank/HomeScreen.jsp';");
 			out.println("</script>");
 		}
 		else
 		{
-			if((check==0))
+			if((check==false))
 			{	
 				
 				stmt=con.prepareStatement("update user_account set is_deleted=1 where user_id_fk=?");

@@ -128,6 +128,7 @@ border:none;
 
      <a href="Passbook.jsp" target="iframe_a">Apply for new passbook</a>
      <a href="ChequeBook.jsp" target="iframe_a">Apply for new cheque book</a>
+
     <a href="Apply_Close.jsp">Close account</a>
 
   </div>

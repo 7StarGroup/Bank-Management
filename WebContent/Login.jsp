@@ -85,7 +85,7 @@ h1 {
 				<tr>
 					<td>Password</td>
 					<td><input type="password" name="password" placeholder="password"
-						required pattern=".{5,10}" required title="password should be of min 5 or max 10 characters"></td>
+						required pattern=".{4,10}" required title="password should be of min 5 or max 10 characters"></td>
 				</tr>
 				<tr>
 					<td><input type="submit" class="button" value="Login"></td>
