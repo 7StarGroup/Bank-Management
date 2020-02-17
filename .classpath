@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5"/>
-	<classpathentry kind="lib" path="F:/makarand/softwares/apache-tomcat-9.0.30/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="F:/Jar Files/mysql-connector-java-5.1.23-bin.jar"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
