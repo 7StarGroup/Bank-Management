@@ -143,9 +143,29 @@ ResultSet rs;
 
 
 
-	<form action="RateOfInterest" method="post">
+	<form action="LoanRequest" method="post" enctype="multipart/form-data">
 		<div class="container">
 
+			<div class="row">
+				<div class="col-25">
+					<label for="LoanType"><b>Loan Type :</b></label>
+				</div>
+				<div class="col-75">
+					<input type="text" name="loanType"  disabled
+						placeholder="Loan Type" value=<%=session.getAttribute("loanType") %> required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="rateofinterest"><b>Rate of Interest :</b></label>
+				</div>
+				<div class="col-75">
+					<input type="text" name="rateOfInterest"  disabled
+						placeholder="your company name" value=<%=session.getAttribute("rateOfInterest") %> required>
+				</div>
+			</div>
+			
+			
 			<div class="row">
 
 				<div class="col-25">
@@ -218,41 +238,11 @@ ResultSet rs;
 				</div>
 			</div>
 		
-			<div class="row">
-				<div class="col-25">
-					<label for="type"><b>Type of Loan:</b></label>
-				</div>
-				<div class="col-75">
-					<select name="type"><option>Home Loan</option><option>Vehicle Loan</option><option>Personal Loan</option></select>
-
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-25">
-					<label for="months"><b>For Months:</b></label>
-				</div>
-				<div class="col-75">
-					<select name="years"><option>3</option>
-						<option>9</option>
-						<option>12</option>
-						<option>24</option>
-					</select>
-				</div>
-			</div>
-			<input type="submit" value="See RateOfInterest" class="button">
 			
-			<div class="row">
-				<div class="col-25">
-					<label for="rateofinterest"><b>Rate of Interest :</b></label>
-				</div>
-				<div class="col-75">
-					<input type="text" name="companyname" 
-						placeholder="your company name" value=<%=session.getAttribute("rateOfInterest") %> required>
-				</div>
-			</div>
+			
 			
 			<br>
-			<!-- <div class="row"></div>
+			<div class="row"></div>
 			<div class="row">
 
 				<table>
@@ -262,32 +252,21 @@ ResultSet rs;
 					
 					</tr>
 					<tr>
-						<td>Aadhar</td>
+						<td>Salary Slip</td>
 						<td>
 							<div class="col-75">
-								<br> <input type="file" name="document" multiple required><br>
+								<br> <input type="file" name="salary" multiple required ><br>
 							</div>
 						</td>
 						
 					</tr>
-					<tr>
-						<td>Pan</td>
-						<td>
-							<div class="col-75">
-								
-									<br> <input type="file" name="document" multiple required><br>
-								
-							</div>
-						</td>
 					
-						
-					</tr>
 				</table>
 				<input type="submit" value="Submit" class="button"
 					style="margin-right: 60%; margin-top: 10%"> <input
 					type="submit" value="Cancel" class="button"
 					style="margin-right: -47%; margin-top: 10%">
-			</div> -->
+			</div>
 	</form>
 	</div>
 </body>
