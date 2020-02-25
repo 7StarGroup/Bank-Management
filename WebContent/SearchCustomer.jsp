@@ -68,8 +68,8 @@ input[type=submit]:hover {
       <label for="From"><b>Account Number :</b></label>
     </div>
     <div class="col-75">
-      <input type="text" name="accountnumber" placeholder="Account Number" required pattern="[0-9]{3}" 
-       title="It should contain only digits">
+      <input type="text" name="accountnumber" placeholder="Account Number" > 
+       >
     </div>
   </div>
  

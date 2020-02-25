@@ -32,7 +32,7 @@ public class ViewUser extends HttpServlet {
 		try {
 			Connection con = Connect.connectDb();
 			ps=con.prepareStatement(
-					"select * from user,user_account where user.user_id=user_account.user_id and account_id_fk=?");
+					"select * from user,user_account where user.user_id=user_account.user_id_fk and account_id_fk=?");
 			ps.setInt(1,Integer.parseInt(accountNo));
 			rs=ps.executeQuery();
 			HttpSession session=request.getSession();

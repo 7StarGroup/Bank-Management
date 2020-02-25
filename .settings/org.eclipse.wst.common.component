@@ -8,15 +8,6 @@
         <dependent-module archiveName="servlet-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/makarand/softwares/apache-tomcat-9.0.30/lib/servlet-api.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="mysql-connector.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/akki/Akshay/mysql-connector.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="jsp.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/akki/Akshay/jsp.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="servlet.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//home/akki/Akshay/servlet.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="context-root" value="Bank"/>
         <property name="java-output-path" value="/Bank/build/classes"/>
     </wb-module>
