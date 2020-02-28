@@ -237,6 +237,16 @@ ResultSet rs;
 						placeholder="your company name" required>
 				</div>
 			</div>
+			
+			<div class="row">
+				<div class="col-25">
+					<label for="Loan_amount"><b>Loan Amount:</b></label>
+				</div>
+				<div class="col-75">
+					<input type="text" name="loanamount" 
+						placeholder="Loan Amount" required>
+				</div>
+			</div>
 		
 			
 			

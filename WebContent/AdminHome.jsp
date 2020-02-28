@@ -129,7 +129,7 @@ border:none;
   </button>
   
   <div class="dropdown-container">
-    <a href="RateOfInterest.jsp" target="iframe_a">Loan Request</a>
+    <a href="LoanRequestAccept.jsp" target="iframe_a">Loan Request</a>
     <a href="CancelRequest.jsp" target="iframe_a">Close Account Request</a>
      <a href="ChequebookRequest.jsp" target="iframe_a">Chequebook request</a>
      <a href="PassbookRequest.jsp" target="iframe_a">Passbook request</a>

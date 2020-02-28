@@ -53,7 +53,7 @@ td, th {
 				u_email = rs.getString(1);
 			}
 
-			String sql = "select user_name,account_id,ifsc_code,account_type,branch_name,contact,email,avail_bal from user,account,branch,user_account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and account.branch_id_fk=branch.branch_id and user_id=?";
+			String sql = "select user_name,account_id,account_type,avail_bal from user,user_account,account where user.user_id=user_account.user_id_fk and account.account_id=user_account.account_id_fk and user_id=?";
 
 			stmt = con.prepareStatement(sql);
 			stmt.setInt(1, user_id);
@@ -81,7 +81,6 @@ td, th {
 		</tr>
 
 
-		</tr>
 		<tr>
 			<td><b>Account Number :</b></td>
 			<td><%=rs.getInt(2)%></td>
@@ -89,34 +88,13 @@ td, th {
 
 		</tr>
 		<tr>
-			<td><b>IFSC Code :</b></td>
-			<td><%=rs.getString(3)%></td>
-		</tr>
-
-		</tr>
-		<tr>
 			<td><b>Account Type :</b></td>
-			<td><%=rs.getString(4)%></td>
-		</tr>
-
-		<tr>
-			<td><b>Branch :</b></td>
-			<td><%=rs.getString(5)%></td>
-		</tr>
-
-		<tr>
-			<td><b>Contact No :</b></td>
-			<td><%=rs.getString(6)%></td>
-		</tr>
-
-		<tr>
-			<td><b>Email :</b></td>
-			<td><%=rs.getString(7)%></td>
+			<td><%=rs.getString(3)%></td>
 		</tr>
 
 		<tr>
 			<td><b>Available Balance :</b></td>
-			<td><%=rs.getInt(8)%></td>
+			<td><%=rs.getInt(4)%></td>
 		</tr>
 
 
