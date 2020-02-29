@@ -26,11 +26,14 @@ public class LoanRequestAction extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Integer user_id = (Integer) session.getAttribute("userId");
-
+		String action = request.getParameter("action");
 		Connection con = Connect.connectDb();
 		try {
 			PreparedStatement ps = con.prepareStatement("update user_loan set is_Sanctioned=? where  user_id_fk=?");
-			ps.setBoolean(1, Boolean.TRUE);
+			if (action.equalsIgnoreCase("ACCEPT"))
+				ps.setBoolean(1, Boolean.TRUE);
+			else
+				ps.setBoolean(1, Boolean.FALSE);
 			ps.setInt(2, user_id);
 
 			int i = ps.executeUpdate();

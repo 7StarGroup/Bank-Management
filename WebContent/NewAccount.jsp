@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+<%@page import="com.bank.db.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,19 +25,21 @@ input[type=text] select, textarea {
 	border-radius: 4px;
 	resize: vertical;
 }
-input[type=password],input[type=text]{
+
+input[type=password], input[type=text] {
 	width: 100%;
 	padding: 12px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	resize: vertical;
 }
+
 label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
 }
 
-input[type=submit], input[type=button]{
+input[type=submit], input[type=button] {
 	background-color: #4CAF50;
 	color: white;
 	padding: 12px 20px;
@@ -116,17 +120,20 @@ tr:nth-child(even) {
 }
 </style>
 <script>
+	
 </script>
 <body>
 	<div class="container">
-		<form action="NewRegistration" method="post" enctype="multipart/form-data">
+		<form action="NewRegistration" method="post"
+			enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-25">
 					<label for="Name"><b>Your Name :</b></label>
 				</div>
 				<div class="col-75">
 					<input type="text" name="name" placeholder="your full name"
-						required pattern="[A-Za-z_ ]{1,50}" title="It should contain only alphabets">
+						required pattern="[A-Za-z_ ]{1,50}"
+						title="It should contain only alphabets">
 				</div>
 			</div>
 			<div class="row">
@@ -135,8 +142,8 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="moblie" placeholder="your moblie number"
-						required pattern="[7-9]{1}[0-9]{9}" 
-       title="It should contain only digits and length must be 10 digit">
+						required pattern="[7-9]{1}[0-9]{9}"
+						title="It should contain only digits and length must be 10 digit">
 				</div>
 			</div>
 			<div class="row">
@@ -154,7 +161,8 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="password" name="password" placeholder="your Password"
-						required pattern=".{5,10}" required title="password should be of min 5 or max 10 characters">
+						required pattern=".{5,10}" required
+						title="password should be of min 5 or max 10 characters">
 				</div>
 			</div>
 			<div class="row"></div>
@@ -173,8 +181,8 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" id="aadhar" name="aadharnumber"
-						placeholder="Your aadhar number" required pattern="[0-9]{16}" 
-       title="It should contain only digits and length must be 16 digit">
+						placeholder="Your aadhar number" required pattern="[0-9]{16}"
+						title="It should contain only digits and length must be 16 digit">
 				</div>
 			</div>
 			<div class="row">
@@ -183,12 +191,40 @@ tr:nth-child(even) {
 				</div>
 				<div class="col-75">
 					<input type="text" name="pannumber" placeholder="Your Pan number"
-						required pattern="[A-Z0-9]{12}" 
-       title="It should contain digits and characters and length must be 12 digit">
+						required pattern="[A-Z0-9]{12}"
+						title="It should contain digits and characters and length must be 12 digit">
 				</div>
 			</div>
-			
-			
+			<%
+				Connection con = null;
+				ResultSet rs = null;
+				PreparedStatement stmt;
+
+				con = Connect.connectDb();
+				try {
+					stmt = con.prepareStatement("select branch_name from branch");
+
+					rs = stmt.executeQuery();
+			%>
+
+			<div class="row">
+				<div class="col-75">
+					<select name="branchName">
+						<%
+							while (rs.next()) {
+						%><option><%=rs.getString(1)%></option>
+						<%
+							}
+						%>
+					</select>
+				</div>
+			</div>
+
+			<%
+				} catch (Exception e) {
+				}
+			%>
+
 			<div class="row">
 				<div class="col-25">
 					<label for="AccountType"><b>Account Type:</b></label>
@@ -211,7 +247,7 @@ tr:nth-child(even) {
 						<td>Aadhar</td>
 						<td>
 							<div class="col-75">
-								<br><input type="file" name="Adocument" multiple required><br>
+								<br> <input type="file" name="Adocument" multiple required><br>
 							</div>
 						</td>
 					</tr>
@@ -219,16 +255,20 @@ tr:nth-child(even) {
 						<td>Pan</td>
 						<td>
 							<div class="col-75">
-							
-								<br>  <input type="file" name="Pdocument" multiple required></form><br>
-								
+
+								<br> <input type="file" name="Pdocument" multiple required>
+								</form>
+								<br>
+
 							</div>
 						</td>
 					</tr>
-					
+
 				</table>
-				<input type="submit" value="Submit" class="button" style="margin-right: 60%; margin-top : 10%">
-					<a href="Welcome.jsp"><input type="button" value="Cancel" class="button" style="margin-right: -47%; margin-top :10%"></a>
+				<input type="submit" value="Submit" class="button"
+					style="margin-right: 60%; margin-top: 10%"> <a
+					href="Welcome.jsp"><input type="button" value="Cancel"
+					class="button" style="margin-right: -47%; margin-top: 10%"></a>
 			</div>
 		</form>
 	</div>

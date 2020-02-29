@@ -38,7 +38,7 @@ public class UpdatePassword extends HttpServlet {
 				{
 					
 					out.println("<script>");
-					out.println("alert('Password does not match');window.location = 'http://localhost:8080/BankMgmt/NewPassword.jsp';");
+					out.println("alert('Password does not match');window.location = 'NewPassword.jsp';");
 					out.println("</script>");
 				}
 		
@@ -47,14 +47,14 @@ public class UpdatePassword extends HttpServlet {
 				if(a>0)
 				{
 					out.println("<script>");
-					out.println("alert('Password Updated');window.location = 'http://localhost:8080/BankMgmt/login.jsp';");
+					out.println("alert('Password Updated');window.location = 'Login.jsp'");
 					out.println("</script>");
 				}
 				
 				else
 				{
 					out.println("<script>");
-					out.println("alert('Error');window.location = 'http://localhost:8080/BankMgmt/login.jsp';");
+					out.println("alert('Error');window.location = 'Login.jsp';");
 					out.println("</script>");
 					
 				}

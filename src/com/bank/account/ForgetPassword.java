@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bank.db.Connect;
 
@@ -31,15 +32,18 @@ public class ForgetPassword extends HttpServlet {
 		
 		response.setContentType("html");
 		PrintWriter out=response.getWriter();
+		
 		String name=request.getParameter("username");
 		String email=request.getParameter("emailid");
+		out.println(name);
+		out.println(email);
 		boolean b=validate(name,email);
 		
-		if(b== true)
+		if(b==true)
 		{
 			
-			request.setAttribute("username", name);
-			request.getRequestDispatcher("NewPassword.jsp").forward(request, response); 
+			
+			request.getRequestDispatcher("ResetPassword.jsp").forward(request, response); 
 		}
 		
 		else
@@ -68,43 +72,32 @@ public class ForgetPassword extends HttpServlet {
 		
 			}
 			
-			
+			PreparedStatement stmt = con
+					.prepareStatement("select user_id,role from user where user_name=? and email=?");
+
+			stmt.setString(1, username);
+			stmt.setString(2, Email);
+
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				
+				return true;
+				
+			} else {
+				return false;
+			}
+		}
+	
 		
 			
 			
 
 			
-		PreparedStatement stmt = con.prepareStatement("select user_name from user where user_name=? and email=?");	
-			
-	
-			stmt.setString(1,username);
-			stmt.setString(2,Email);
-			
-			
-			
-			ResultSet rs = stmt.executeQuery();
-			
-			
-			
-			
-	
-			
-			
-			if(rs.next())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-				
-			}
-			
 		
-	}
 		catch(Exception e) {}
-		
 		return false;
+		
 	}
 
 }

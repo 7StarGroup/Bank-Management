@@ -71,14 +71,21 @@ h1 {
 			<table class="fonts" align="center" cell>
 
 				<tr>
+				
+				<td>User Name</td>
+					
+					<td><input type="text" name="username"
+						placeholder="Enter User Name" required ></td>
+						</tr>
+						<tr>
 					<td>Email Id</td>
-					<td></td>
-					<td><input type="text" name="emailId"
-						placeholder="Registered emailId" required ></td>
+					
+					<td><input type="text" name="emailid"
+						placeholder="Registered email Id" required ></td>
 				</tr>
 			</table>
 		
-		<input type="submit" class="button" value="Send mail">
+		<input type="submit" class="button" value="Submit">
 		</form>
 	</div>
 </body>

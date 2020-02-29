@@ -51,7 +51,7 @@ public class LoanRequest extends HttpServlet {
 		Part part = request.getPart("salary");
 		String fileName = extractFileName(part);// file name
 
-		String savePath = "F:\\makarand\\projects\\git_Bank\\bank\\WebContent\\Images" + File.separator + fileName;
+		String savePath = "C:\\Users\\Dolby\\Desktop\\Bank_Management_Mak\\bank\\WebContent\\Images" + File.separator + fileName;
 
 		File fileSaveDir = new File(savePath);
 		part.write(savePath + File.separator);
