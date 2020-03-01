@@ -196,17 +196,6 @@ tr:nth-child(even) {
 			
 			
 			<div class="row">
-				<div class="col-25">
-					<label for="AccountType"><b>Account Type:</b></label>
-				</div>
-				<div class="col-75">
-					<br>saving :<input type="radio" name="Type" value="saving"
-						required> Current:<input type="radio" name="Type"
-						value="saving" required><br>
-				</div>
-			</div>
-			<div class="row"></div>
-			<div class="row">
 
 				<table>
 					<tr>

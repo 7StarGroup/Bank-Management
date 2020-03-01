@@ -29,20 +29,34 @@ public class LoanRequestAction extends HttpServlet {
 		String action = request.getParameter("action");
 		Connection con = Connect.connectDb();
 		try {
+			Boolean isAccepted = Boolean.FALSE;
 			PreparedStatement ps = con.prepareStatement("update user_loan set is_Sanctioned=? where  user_id_fk=?");
-			if (action.equalsIgnoreCase("ACCEPT"))
+			if (action.equalsIgnoreCase("ACCEPT")) {
+
 				ps.setBoolean(1, Boolean.TRUE);
-			else
+				isAccepted = Boolean.TRUE;
+
+			} else {
 				ps.setBoolean(1, Boolean.FALSE);
+				isAccepted = Boolean.FALSE;
+			}
 			ps.setInt(2, user_id);
 
 			int i = ps.executeUpdate();
 			if (i != 0) {
-				PrintWriter out = response.getWriter();
-				out.println("<script>");
-				out.println("alert('Loan request accepted successfully.')");
-				out.println("window.parent.location.reload();");
-				out.println("</script>");
+				if (!isAccepted) {
+					PrintWriter out = response.getWriter();
+					out.println("<script>");
+					out.println("alert('Loan request accepted successfully.')");
+					out.println("window.parent.location.reload();");
+					out.println("</script>");
+				} else {
+					PrintWriter out = response.getWriter();
+					out.println("<script>");
+					out.println("alert('Loan request rejected successfully.')");
+					out.println("window.parent.location.reload();");
+					out.println("</script>");
+				}
 
 			}
 		} catch (Exception e) {

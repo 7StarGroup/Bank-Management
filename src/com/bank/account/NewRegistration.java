@@ -71,14 +71,17 @@ public class NewRegistration extends HttpServlet {
 			ps.setString(1, branchName);
 			ResultSet rs = ps.executeQuery();
 
-			PreparedStatement preparedStatemen = con.prepareStatement("select * from user where pan_no=?");
+			PreparedStatement preparedStatemen = con
+					.prepareStatement("select * from user where pan_no=? and aadhar_no=?");
 			preparedStatemen.setString(1, pan);
+			preparedStatemen.setInt(2, Integer.parseInt(aadhar));
 			ResultSet resultSet = preparedStatemen.executeQuery();
 			if (resultSet.next()) {
 				out.println("<script>");
 				out.println("alert('Account already exists please login!!')");
 				out.println("window.location='Login.jsp'");
 				out.println("</script>");
+				return;
 			}
 			userStatement = con.prepareStatement(
 					"insert into user (user_name,email,password,address,contact,role,aadhar_url,aadhar_no,pan_url,pan_no)values(?,?,?,?,?,?,?,?,?,?)");
@@ -125,7 +128,7 @@ public class NewRegistration extends HttpServlet {
 			if (i != 0) {
 				out.println("<script>");
 				out.println("alert('Account created successfully.')");
-				out.println("window.parent.location.reload();");
+				out.println("window.location='Login.jsp'");
 				out.println("</script>");
 
 			}
